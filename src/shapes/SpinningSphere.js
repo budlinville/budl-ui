@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 
-const SpinningBox = ({ position, args, color }) => {
+const SpinningSphere = ({ position, args, color }) => {
 	const mesh = useRef(null);
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
 	return(
@@ -12,4 +12,4 @@ const SpinningBox = ({ position, args, color }) => {
 	);
 };
 
-export default SpinningBox;
+export default SpinningSphere;

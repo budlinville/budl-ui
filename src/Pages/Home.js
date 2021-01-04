@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import Floor from '../shapes/Floor';
+import OrbitingSphere from '../shapes/OrbitingSphere';
 import SpinningBox from '../shapes/SpinningBox';
 import SpinningSphere from '../shapes/SpinningSphere';
 
@@ -46,10 +47,10 @@ const Home = () => {
 				{/***** GEOMETRY *****/}
 				<Floor position={[0, -3, 0]} args={[100, 100]} color='blue'/>
 
-				<SpinningBox position={[0, 1, 0]} args={[2, 2, 2]} color='lightblue'/>
-				<SpinningSphere position={[0, 3, 0]} args={[1, 8, 8]} color='lightblue'/>
-				<SpinningBox position={[-2, 1, -5]} color='pink'/>
-				<SpinningBox position={[5, 1, -2]} color='pink'/>
+				<SpinningBox position={[0, 0, 0]} args={[3, 3, 3]} color='black'/>
+				<OrbitingSphere position={[0, 6, 0]} args={[1, 10, 10]} color='red'/>
+				<OrbitingSphere position={[0, 0, 9]} axis={[0, 1, 0]} args={[1, 10, 10]} color='blue'/>
+				<OrbitingSphere position={[7, 0, 0]} axis={[1, 1, 0]} args={[1, 10, 10]} color='yellow'/>
 			</Canvas>
 		</>
 	);
