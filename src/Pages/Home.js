@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+import Floor from '../shapes/Floor';
+import SpinningBox from '../shapes/SpinningBox';
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
@@ -14,17 +17,6 @@ const CameraControls = () => {
   return <orbitControls ref={controls} args={[camera, domElement]} />;
 };
 
-const SpinningMesh = ({ position, args, color }) => {
-	const mesh = useRef(null);
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
-	return(
-		<mesh castShadow position={position} ref={mesh}>
-			<boxBufferGeometry attach='geometry' args={args}/>
-			<meshStandardMaterial attach='material' color={color}/>
-		</mesh>
-	);
-};
-
 const Home = () => {
 	return (
 		<>
@@ -32,6 +24,7 @@ const Home = () => {
 				shadowMap
 				colorManagement
 				camera={{position: [-5, 2, 10], fov: 60}}>
+				{/***** LIGHTING *****/}
 				<CameraControls />
 				<ambientLight intensity={0.3}/>
 				<directionalLight
@@ -49,17 +42,12 @@ const Home = () => {
 				<pointLight position={[-10, 0, -20]} intensity={0.5}/>
 				<pointLight position={[0, -10, 0]} intensity={1.5}/>
 
-				{/* Floor */}
-				<group>
-					<mesh receiveShadow rotation={[-Math.PI/2, 0, 0]} position={[0, -3, 0]}>
-						<planeBufferGeometry attach='geometry' args={[100, 100]}/>
-						<shadowMaterial attach='material' opacity={0.3}/>
-					</mesh>
-				</group>
+				{/***** GEOMETRY *****/}
+				<Floor position={[0, -3, 0]} args={[100, 100]} color='blue'/>
 
-				<SpinningMesh position={[0, 1, 0]} args={[3, 2, 1]} color='lightblue'/>
-				<SpinningMesh position={[-2, 1, -5]} color='pink'/>
-				<SpinningMesh position={[5, 1, -2]} color='pink'/>
+				<SpinningBox position={[0, 1, 0]} args={[2, 2, 2]} color='lightblue'/>
+				<SpinningBox position={[-2, 1, -5]} color='pink'/>
+				<SpinningBox position={[5, 1, -2]} color='pink'/>
 			</Canvas>
 		</>
 	);
