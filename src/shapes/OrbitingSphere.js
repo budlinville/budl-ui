@@ -8,7 +8,9 @@ const OrbitingSphere = ({
 	color,
 	axis = [0, 0, 1],
 	point = [0, 0, 0],
-	delta = 0.01
+	delta = 0.01,
+	hoverCallback = () => ({}),
+	releaseCallback = () => ({})
 }) => {
 	const mesh = useRef(null);
 	const axisVect = new Vector3(...axis);
@@ -20,7 +22,7 @@ const OrbitingSphere = ({
 		mesh.current.rotateOnAxis(axisVect, delta);
 	});
 	return(
-		<mesh castShadow position={position} ref={mesh}>
+		<mesh onPointerOver={hoverCallback} onPointerOut={releaseCallback} castShadow position={position} ref={mesh}>
 			<sphereBufferGeometry attach='geometry' args={args}/>
 			<meshStandardMaterial attach='material' color={color}/>
 		</mesh>
