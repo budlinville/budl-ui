@@ -60,7 +60,8 @@ const Home = () => {
 							position={sphere.position}
 							axis={sphere.axis}
 							args={sphere.args}
-							color={sphere.color}
+							color={hoveredId === index ? 'white' : sphere.color}
+							delta = {hoveredId > -1 ? 0 : 0.01}
 							hoverCallback={() => setHoveredId(index)}
 							releaseCallback={() => setHoveredId(-1)}
 						/>
