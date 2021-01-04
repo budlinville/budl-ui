@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
-const ToHome = () => {
+const Redirect = ({to}) => {
 	const history = useHistory();
 
 	useEffect(() => {
-		history.push("/home");	
+		history.push(`/${to}`);	
 	});
 	return (
 		<div>
-			Loading...
+			Redirecting...
 		</div>
 	);
 };
 
-export default ToHome;
+export default Redirect;

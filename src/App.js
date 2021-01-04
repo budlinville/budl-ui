@@ -7,13 +7,15 @@ import {
 
 import Home from './Pages/Home';
 import About from './Pages/About';
-import ToHome from './Pages'; 
+import Redirect from './Pages/Redirect'; 
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={ToHome} />
+        <Route exact path="/" render={props => (
+          <Redirect {...props} to="home"/>
+        )} />
         <Route path="/home" component={Home}/>
         <Route path="/about" component={About}/>
       </Switch>
