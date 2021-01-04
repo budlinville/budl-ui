@@ -5,7 +5,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Floor from '../shapes/Floor';
 import OrbitingSphere from '../shapes/OrbitingSphere';
 import SpinningBox from '../shapes/SpinningBox';
-import SpinningSphere from '../shapes/SpinningSphere';
 
 import sphereData from '../data/spheres';
 
