@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" render={props => (
-          <Redirect {...props} to="home"/>
+          <Redirect {...props} to="/home"/>
         )} />
         <Route path="/home" component={Home}/>
         <Route path="/about" component={About}/>
