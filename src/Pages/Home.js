@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import Floor from '../shapes/Floor';
 import SpinningBox from '../shapes/SpinningBox';
+import SpinningSphere from '../shapes/SpinningSphere';
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
@@ -46,6 +47,7 @@ const Home = () => {
 				<Floor position={[0, -3, 0]} args={[100, 100]} color='blue'/>
 
 				<SpinningBox position={[0, 1, 0]} args={[2, 2, 2]} color='lightblue'/>
+				<SpinningSphere position={[0, 3, 0]} args={[1, 8, 8]} color='lightblue'/>
 				<SpinningBox position={[-2, 1, -5]} color='pink'/>
 				<SpinningBox position={[5, 1, -2]} color='pink'/>
 			</Canvas>
