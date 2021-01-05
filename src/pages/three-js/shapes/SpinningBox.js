@@ -1,14 +1,14 @@
 import { useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
+import { Box } from '@react-three/drei';
 
 const SpinningBox = ({ position, args, color }) => {
 	const mesh = useRef(null);
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
 	return(
-		<mesh castShadow position={position} ref={mesh}>
-			<boxBufferGeometry attach='geometry' args={args}/>
-			<meshStandardMaterial attach='material' color={color}/>
-		</mesh>
+		<Box castShadow ref={mesh} position={position} args={args}>
+			<meshBasicMaterial attach="material" color={color} />
+		</Box>
 	);
 };
 

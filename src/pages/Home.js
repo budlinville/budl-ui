@@ -5,8 +5,7 @@ import Scene from './three-js/Scene';
 import sphereData from '../data/spheres';
 
 const style = color => ({
-	background: `linear-gradient(${color}, transparent)`,
-  backgroundColor: 'white'
+	background: `linear-gradient(${color}, white)`
 });
 
 const Home = () => {

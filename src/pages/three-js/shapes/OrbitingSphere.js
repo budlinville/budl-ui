@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Vector3 } from 'three';
 import { useFrame } from 'react-three-fiber';
+import { Sphere } from '@react-three/drei';
 
 const OrbitingSphere = ({
 	position,
@@ -12,20 +13,30 @@ const OrbitingSphere = ({
 	hoverCallback = () => ({}),
 	releaseCallback = () => ({})
 }) => {
-	const mesh = useRef(null);
+	const mesh = useRef();
 	const axisVect = new Vector3(...axis);
 	const pointVect = new Vector3(...point);
-	useFrame(() => {
+
+	const orbit = () => {
 		mesh.current.position.sub(pointVect);
 		mesh.current.position.applyAxisAngle(axisVect, delta);
 		mesh.current.position.add(pointVect);
 		mesh.current.rotateOnAxis(axisVect, delta);
-	});
+	};
+
+	useFrame(() => orbit());
+
 	return(
-		<mesh onPointerOver={hoverCallback} onPointerOut={releaseCallback} castShadow position={position} ref={mesh}>
-			<sphereBufferGeometry attach='geometry' args={args}/>
-			<meshStandardMaterial attach='material' color={color}/>
-		</mesh>
+			<Sphere
+				ref={mesh}
+				position={position}
+				args={args}
+				onPointerOver={hoverCallback}
+				onPointerOut={releaseCallback}
+				castShadow
+			>
+				<meshBasicMaterial attach="material" color={color} />
+			</Sphere>
 	);
 };
 

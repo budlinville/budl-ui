@@ -36,8 +36,6 @@ const Scene = ({
 				shadow-camera-top={10}
 				shadow-camera-bottom={-10}
 			/>
-			<pointLight position={[-10, 0, -20]} intensity={0.5}/>
-			<pointLight position={[0, -10, 0]} intensity={1.5}/>
 
 			{/***** GEOMETRY *****/}
 			<Floor position={[0, -3, 0]} args={[100, 100]} color='blue'/>
@@ -46,7 +44,7 @@ const Scene = ({
 			{sphereData.map((sphere, index) => {
 				return (
 					<OrbitingSphere
-						id={index}
+						key={index}
 						position={sphere.position}
 						axis={sphere.axis}
 						args={sphere.args}
