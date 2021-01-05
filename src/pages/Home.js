@@ -6,7 +6,7 @@ import sphereData from '../data/spheres';
 
 const style = color => ({
 	background: `linear-gradient(${color}, transparent)`,
-  backgroundColor: 'white' /*this your primary color*/
+  backgroundColor: 'white'
 });
 
 const Home = () => {

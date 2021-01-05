@@ -1,24 +1,12 @@
-import React, { useRef } from 'react';
-import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import React from 'react';
+import { Canvas } from 'react-three-fiber';
+import { OrbitControls } from '@react-three/drei';
 
 import Floor from './shapes/Floor';
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 import sphereData from '../../data/spheres';
-
-// Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
-extend({ OrbitControls });
-
-const CameraControls = () => {
-  // https://threejs.org/docs/#examples/en/controls/OrbitControls
-  const { camera, gl: { domElement } } = useThree();
-  // Ref to the controls, so that we can update them on every frame using useFrame
-  const controls = useRef();
-  useFrame(() => controls.current.update());
-  return <orbitControls ref={controls} args={[camera, domElement]} />;
-};
 
 const Scene = ({
 	hoveredSphereId,
@@ -29,9 +17,12 @@ const Scene = ({
 			shadowMap
 			colorManagement
 			style={{backgroundColor: 'transparent'}}
-			camera={{position: [-5, 2, 10], fov: 60}}>
+			camera={{position: [-5, 2, 10], fov: 60}}
+		>
+			{/***** CONTROLS *****/}
+			<OrbitControls/>
+
 			{/***** LIGHTING *****/}
-			<CameraControls />
 			<ambientLight intensity={0.3}/>
 			<directionalLight
 				castShadow
