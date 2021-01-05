@@ -10,7 +10,7 @@ const style = color => ({
 
 const Home = () => {
 	const [hoveredSphereId, setHoveredSphereId] = useState(-1);	// id of sphere being hovered over; -1 if none
-	const backgroundColor = hoveredSphereId > -1 ? sphereData[hoveredSphereId].color : 'white';
+	const backgroundColor = hoveredSphereId > -1 ? sphereData[hoveredSphereId].color : 'gray';
 
 	return (
 		<div style={style(backgroundColor)}>
