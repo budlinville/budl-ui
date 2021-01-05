@@ -22,7 +22,10 @@ const Scene = ({
 			camera={{position: [0, 15, -15], fov: 60}}
 		>
 			{/***** CONTROLS *****/}
-			<OrbitControls target={new Vector3(0, 10, 0)}/>
+			<OrbitControls
+				target={new Vector3(0, 10, 0)}
+				minDistance={5}
+				maxDistance={30}/>
 
 			{/***** CAMERA *****/}
 
