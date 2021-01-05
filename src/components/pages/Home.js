@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Scene from './three-js/Scene';
+import Scene from '../three-js/Scene';
 
-import sphereData from '../data/spheres';
+import sphereData from '../../data/spheres';
 
 const style = color => ({
 	background: `linear-gradient(${color}, white)`

@@ -7,9 +7,9 @@ import {
 
 import './App.css';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Redirect from './pages/Redirect'; 
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Redirect from './components/pages/Redirect'; 
 
 function App() {
   return (
