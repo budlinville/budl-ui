@@ -7,45 +7,50 @@ import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 import sphereData from '../../data/spheres';
+import { Vector3 } from 'three';
 
 const Scene = ({
 	hoveredSphereId,
 	setHoveredSphereId
 }) => {
+	const SCENE_SIZE = 50;		// actually twice this, because using both positive and negative coords
 	return (
 		<Canvas
 			shadowMap
 			colorManagement
 			style={{backgroundColor: 'transparent'}}
-			camera={{position: [-5, 2, 10], fov: 60}}
+			camera={{position: [0, 15, -15], fov: 60}}
 		>
 			{/***** CONTROLS *****/}
-			<OrbitControls/>
+			<OrbitControls target={new Vector3(0, 10, 0)}/>
+
+			{/***** CAMERA *****/}
 
 			{/***** LIGHTING *****/}
 			<ambientLight intensity={0.4}/>
 			<directionalLight
 				castShadow
-				position={[0, 10, 0]}
+				position={[0, 30, 0]}
 				intensity={1}
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
-				shadow-camera-far={50}
-				shadow-camera-left={-10}
-				shadow-camera-right={10}
-				shadow-camera-top={10}
-				shadow-camera-bottom={-10}
+				shadow-camera-far={SCENE_SIZE}
+				shadow-camera-left={-1 * SCENE_SIZE}
+				shadow-camera-right={SCENE_SIZE}
+				shadow-camera-top={SCENE_SIZE}
+				shadow-camera-bottom={-1 * SCENE_SIZE}
 			/>
 
 			{/***** GEOMETRY *****/}
-			<Floor position={[0, -3, 0]} args={[100, 100]} color='blue'/>
+			<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>
 
-			<SpinningBox position={[0, 0, 0]} args={[3, 3, 3]} color='black'/>
+			<SpinningBox position={[0, 10, 0]} args={[3, 3, 3]} color='black'/>
 			{sphereData.map((sphere, index) => {
 				return (
 					<OrbitingSphere
 						key={index}
 						position={sphere.position}
+						center={sphere.center}
 						axis={sphere.axis}
 						args={sphere.args}
 						color={hoveredSphereId === index ? 'white' : sphere.color}

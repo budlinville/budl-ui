@@ -8,19 +8,19 @@ const OrbitingSphere = ({
 	args,
 	color,
 	axis = [0, 0, 1],
-	point = [0, 0, 0],
+	center = [0, 0, 0],
 	delta = 0.01,
 	hoverCallback = () => ({}),
 	releaseCallback = () => ({})
 }) => {
 	const mesh = useRef();
 	const axisVect = new Vector3(...axis);
-	const pointVect = new Vector3(...point);
+	const centerVect = new Vector3(...center);
 
 	const orbit = () => {
-		mesh.current.position.sub(pointVect);
+		mesh.current.position.sub(centerVect);
 		mesh.current.position.applyAxisAngle(axisVect, delta);
-		mesh.current.position.add(pointVect);
+		mesh.current.position.add(centerVect);
 		mesh.current.rotateOnAxis(axisVect, delta);
 	};
 
