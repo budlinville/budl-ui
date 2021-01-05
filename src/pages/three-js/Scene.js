@@ -23,11 +23,11 @@ const Scene = ({
 			<OrbitControls/>
 
 			{/***** LIGHTING *****/}
-			<ambientLight intensity={0.3}/>
+			<ambientLight intensity={0.4}/>
 			<directionalLight
 				castShadow
 				position={[0, 10, 0]}
-				intensity={1.5}
+				intensity={1}
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
 				shadow-camera-far={50}

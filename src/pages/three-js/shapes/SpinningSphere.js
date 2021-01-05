@@ -7,7 +7,7 @@ const SpinningSphere = ({ position, args, color }) => {
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
 	return(
 		<Sphere castShadow ref={mesh} position={position} args={args}>
-			<meshBasicMaterial attach="material" color={color} />
+			<meshStandardMaterial attach="material" color={color} />
 		</Sphere>
 	);
 };
