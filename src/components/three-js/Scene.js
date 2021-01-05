@@ -48,17 +48,17 @@ const Scene = ({
 			<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>
 
 			<SpinningBox position={[0, 10, 0]} args={[3, 3, 3]} color='gray'/>
-			{sphereData.map((sphere, index) => {
+			{sphereData.map(sphere => {
 				return (
 					<OrbitingSphere
-						key={index}
+						key={sphere.id}
 						position={sphere.position}
 						center={sphere.center}
 						axis={sphere.axis}
 						args={sphere.args}
-						color={hoveredSphereId === index ? 'white' : sphere.color}
+						color={hoveredSphereId === sphere.id ? 'white' : sphere.color}
 						delta = {hoveredSphereId > -1 ? 0 : 0.01}
-						hoverCallback={() => setHoveredSphereId(index)}
+						hoverCallback={() => setHoveredSphereId(sphere.id)}
 						releaseCallback={() => setHoveredSphereId(-1)}
 					/>
 				);	
