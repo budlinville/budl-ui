@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Vector3 } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
@@ -27,16 +27,16 @@ const OrbitingSphere = ({
 	useFrame(() => orbit());
 
 	return(
-			<Sphere
-				ref={mesh}
-				position={position}
-				args={args}
-				onPointerOver={hoverCallback}
-				onPointerOut={releaseCallback}
-				castShadow
-			>
-				<meshBasicMaterial attach="material" color={color} />
-			</Sphere>
+		<Sphere
+			ref={mesh}
+			position={position}
+			args={args}
+			onPointerOver={hoverCallback}
+			onPointerOut={releaseCallback}
+			castShadow
+		>
+			<meshBasicMaterial attach="material" color={color} />
+		</Sphere>
 	);
 };
 
