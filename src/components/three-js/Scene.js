@@ -47,7 +47,7 @@ const Scene = ({
 			{/***** GEOMETRY *****/}
 			<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>
 
-			<SpinningBox position={[0, 10, 0]} args={[3, 3, 3]} color='black'/>
+			<SpinningBox position={[0, 10, 0]} args={[3, 3, 3]} color='gray'/>
 			{sphereData.map((sphere, index) => {
 				return (
 					<OrbitingSphere
