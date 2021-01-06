@@ -35,7 +35,7 @@ const OrbitingSphere = ({
 			onPointerOut={releaseCallback}
 			castShadow
 		>
-			<meshStandardMaterial attach="material" color={color} />
+			<meshToonMaterial attach="material" color={color} />
 		</Sphere>
 	);
 };

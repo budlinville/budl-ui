@@ -1,12 +1,12 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
+import { Vector3 } from 'three';
 
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 import sphereData from '../../data/spheres';
-import { Vector3 } from 'three';
 
 const Scene = ({
 	hoveredSphereId,
