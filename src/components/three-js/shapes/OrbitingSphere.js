@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Vector3 } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
@@ -13,9 +13,17 @@ const OrbitingSphere = ({
 	hoverCallback = () => ({}),
 	releaseCallback = () => ({})
 }) => {
-	const mesh = useRef();
-	const axisVect = new Vector3(...axis);
-	const centerVect = new Vector3(...center);
+	const [hovering, setHovering] = useState(false);
+
+	const onHover = () => {
+		setHovering(true);
+		hoverCallback();
+	};
+
+	const onRelease = () => {
+		setHovering(false);
+		releaseCallback();
+	};
 
 	const orbit = () => {
 		mesh.current.position.sub(centerVect);
@@ -26,16 +34,23 @@ const OrbitingSphere = ({
 
 	useFrame(() => orbit());
 
+	const mesh = useRef();
+	const axisVect = new Vector3(...axis);
+	const centerVect = new Vector3(...center);
+
 	return(
 		<Sphere
 			ref={mesh}
 			position={position}
 			args={args}
-			onPointerOver={hoverCallback}
-			onPointerOut={releaseCallback}
+			onPointerOver={onHover}
+			onPointerOut={onRelease}
 			castShadow
 		>
-			<meshToonMaterial attach="material" color={color} />
+			{ hovering
+				? <meshBasicMaterial attach="material" color="white" />
+				: <meshToonMaterial attach="material" color={color} />
+			}
 		</Sphere>
 	);
 };
