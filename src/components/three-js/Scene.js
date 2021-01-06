@@ -23,6 +23,7 @@ const Scene = ({
 			{/***** CONTROLS *****/}
 			<OrbitControls
 				target={new Vector3(0, 10, 0)}
+				enablePan={false}
 				minDistance={5}
 				maxDistance={30}/>
 
