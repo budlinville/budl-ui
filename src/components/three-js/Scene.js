@@ -2,7 +2,6 @@ import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 
-import Floor from './shapes/Floor';
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
@@ -45,9 +44,16 @@ const Scene = ({
 			/>
 
 			{/***** GEOMETRY *****/}
-			<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>
+			{/*<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>*/}
 
-			<SpinningBox position={[0, 10, 0]} args={[3, 3, 3]} color='gray'/>
+			<SpinningBox
+				position={[0, 10, 0]}
+				args={[3, 3, 3]}
+				color={ hoveredSphereId > -1
+					? sphereData[hoveredSphereId].color
+					: 'gray'
+				 }
+			/>
 			{sphereData.map(sphere => {
 				return (
 					<OrbitingSphere
