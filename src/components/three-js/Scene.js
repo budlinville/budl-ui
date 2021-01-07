@@ -5,6 +5,7 @@ import { Vector3 } from 'three';
 
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
+import Lighting from './Lighting';
 
 import sphereData from '../../data/spheres';
 
@@ -31,19 +32,7 @@ const Scene = ({
 			{/***** CAMERA *****/}
 
 			{/***** LIGHTING *****/}
-			<ambientLight intensity={0.4}/>
-			<directionalLight
-				castShadow
-				position={[0, 30, 0]}
-				intensity={1}
-				shadow-mapSize-width={1024}
-				shadow-mapSize-height={1024}
-				shadow-camera-far={SCENE_SIZE}
-				shadow-camera-left={-1 * SCENE_SIZE}
-				shadow-camera-right={SCENE_SIZE}
-				shadow-camera-top={SCENE_SIZE}
-				shadow-camera-bottom={-1 * SCENE_SIZE}
-			/>
+			<Lighting sceneSize={SCENE_SIZE}/>
 
 			{/***** GEOMETRY *****/}
 			{/*<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>*/}
