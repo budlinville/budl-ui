@@ -26,7 +26,7 @@ const spheres = [
 		center: [0, 10, 0],
 		axis: [0, 0, 1],
 		args: [1, 25, 25],
-		color: 'yellow'
+		color: 'green'
 	},
 ];
 

@@ -47,7 +47,7 @@ const OrbitingSphere = ({
 	const outline = useRef();
 	const axisVect = new Vector3(...axis);
 	const centerVect = new Vector3(...center);
-	const outlineMaterial = new MeshBasicMaterial( { side: BackSide } );
+	const outlineMaterial = new MeshBasicMaterial();
 	const outlineGeometry = new SphereGeometry(args[0], args[1], args[2]);
 	const outlineMesh = new Mesh(outlineGeometry, outlineMaterial);
 
