@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { Vector3 } from 'three';
@@ -14,6 +15,11 @@ const Scene = ({
 }) => {
 	const SCENE_SIZE = 50;	// actually twice this, because using both positive and negative coords
 	const CAM_POS = [0, 15, -15];
+
+	/*
+	const camPos = useSelector(state => state.scene.camera.position);
+	const center = useSelector(state => state.scene.center.position);
+	*/
 	return (
 		<Canvas
 			shadowMap
