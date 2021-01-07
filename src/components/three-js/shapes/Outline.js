@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useMemo, useState, useContext, useCallback, createContext } from "react"
-import { Vector2 } from "three"
-import { useFrame, useThree } from "react-three-fiber";
-import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
+import { Vector2 } from 'three'
+import { useFrame, useThree } from 'react-three-fiber';
+import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader';
 
 const context = createContext();
 
@@ -26,16 +26,20 @@ const Outline = ({ children }) => {
     <context.Provider value={set}>
       {children}
       <effectComposer ref={composer} args={[gl]}>
-        <renderPass attachArray="passes" args={[scene, camera]} />
+        <renderPass attachArray='passes' args={[scene, camera]} />
         <outlinePass
-          attachArray="passes"
+          attachArray='passes'
           args={[aspect, scene, camera]}
           selectedObjects={hovered}
-          visibleEdgeColor="white"
+          visibleEdgeColor='white'
           edgeStrength={100}
           edgeThickness={20}
         />
-        <shaderPass attachArray="passes" args={[FXAAShader]} uniforms-resolution-value={[1 / size.width, 1 / size.height]} />
+        <shaderPass
+          attachArray='passes'
+          args={[FXAAShader]}
+          uniforms-resolution-value={[1 / size.width, 1 / size.height]}
+        />
       </effectComposer>
     </context.Provider>
   );

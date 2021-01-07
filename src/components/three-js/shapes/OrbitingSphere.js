@@ -62,8 +62,8 @@ const OrbitingSphere = ({
 				castShadow
 			>
 				{ hovering
-					? <meshBasicMaterial attach="material" color="white" />
-					: <meshToonMaterial attach="material" color={color} />
+					? <meshBasicMaterial attach='material' color='white' />
+					: <meshToonMaterial attach='material' color={color} />
 				}
 			</Sphere>
 			<Sphere

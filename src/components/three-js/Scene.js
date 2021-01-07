@@ -3,17 +3,16 @@ import { Canvas } from 'react-three-fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { Vector3 } from 'three';
 
+import sphereData from '../../data/spheres';
+import Lighting from './Lighting';
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
-import Lighting from './Lighting';
-
-import sphereData from '../../data/spheres';
 
 const Scene = ({
 	hoveredSphereId,
 	setHoveredSphereId
 }) => {
-	const SCENE_SIZE = 50;		// actually twice this, because using both positive and negative coords
+	const SCENE_SIZE = 50;	// actually twice this, because using both positive and negative coords
 	const CAM_POS = [0, 15, -15];
 	return (
 		<Canvas
