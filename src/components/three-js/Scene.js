@@ -13,12 +13,13 @@ const Scene = ({
 	setHoveredSphereId
 }) => {
 	const SCENE_SIZE = 50;		// actually twice this, because using both positive and negative coords
+	const CAM_POS = [0, 15, -15];
 	return (
 		<Canvas
 			shadowMap
 			colorManagement
 			style={{backgroundColor: 'transparent'}}
-			camera={{position: [0, 15, -15], fov: 60}}
+			camera={{position: CAM_POS, fov: 60}}
 		>
 			{/***** CONTROLS *****/}
 			<OrbitControls
