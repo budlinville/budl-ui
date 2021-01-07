@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Vector3, BackSide, SphereGeometry, MeshBasicMaterial, Mesh } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
@@ -8,12 +9,12 @@ const OrbitingSphere = ({
 	args,
 	color,
 	axis = [0, 0, 1],
-	center = [0, 0, 0],
 	delta = 0.01,
 	hoverCallback = () => ({}),
 	releaseCallback = () => ({})
 }) => {
 	const [hovering, setHovering] = useState(false);
+	const center = useSelector(state => state.scene.center.position);
 
 	const onHover = () => {
 		setHovering(true);

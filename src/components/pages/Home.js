@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {useDispatch } from 'react-redux';
 
 import sphereData from '../../data/spheres';
@@ -22,7 +22,7 @@ const Home = () => {
 		dispatch(setCamPos(CAM_POS));
 	}, [dispatch]);
 
-	setSceneState();
+	useEffect(() => setSceneState());
 
 	return (
 		<div style={style(backgroundColor)}>
