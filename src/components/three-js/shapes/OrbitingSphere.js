@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Vector3 } from 'three';
+import React, { useEffect, useRef, useState } from 'react';
+import { Vector3, BackSide, SphereGeometry, MeshBasicMaterial, Mesh } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
 
@@ -30,28 +30,59 @@ const OrbitingSphere = ({
 		mesh.current.position.applyAxisAngle(axisVect, delta);
 		mesh.current.position.add(centerVect);
 		mesh.current.rotateOnAxis(axisVect, delta);
+
+		outline.current.position.sub(centerVect);
+		outline.current.position.applyAxisAngle(axisVect, delta);
+		outline.current.position.add(centerVect);
+		outline.current.rotateOnAxis(axisVect, delta);
 	};
 
 	useFrame(() => orbit());
+
+	useEffect(() => {
+		outline.current.scale.set(1.05, 1.05, 1.05);
+	});
 
 	const mesh = useRef();
 	const axisVect = new Vector3(...axis);
 	const centerVect = new Vector3(...center);
 
+	const outline = useRef();
+	const outlineMaterial = new MeshBasicMaterial( { side: BackSide } );
+	const outlineGeometry = new SphereGeometry(args[0], args[1], args[2]);
+
 	return(
-		<Sphere
-			ref={mesh}
-			position={position}
-			args={args}
-			onPointerOver={onHover}
-			onPointerOut={onRelease}
-			castShadow
-		>
-			{ hovering
-				? <meshBasicMaterial attach="material" color="white" />
-				: <meshToonMaterial attach="material" color={color} />
-			}
-		</Sphere>
+		<group>
+			<Sphere
+				ref={mesh}
+				position={position}
+				args={args}
+				onPointerOver={onHover}
+				onPointerOut={onRelease}
+				castShadow
+			>
+				{ hovering
+					? <meshBasicMaterial attach="material" color="white" />
+					: <meshToonMaterial attach="material" color={color} />
+				}
+			</Sphere>
+			<Sphere
+				ref={outline}
+				position={position}
+				args={args}
+				onPointerOver={onHover}
+				onPointerOut={onRelease}
+				castShadow
+				visible={hovering}
+			>
+				<meshBasicMaterial
+					ref={outline}
+					color={'black'}
+					side={BackSide}
+					mesh={new Mesh(outlineGeometry, outlineMaterial)}
+				/>
+			</Sphere>
+		</group>
 	);
 };
 
