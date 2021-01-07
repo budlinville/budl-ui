@@ -41,7 +41,7 @@ const OrbitingSphere = ({
 
 	useEffect(() => {
 		outline.current.scale.set(1.05, 1.05, 1.05);
-	});
+	}, []);
 
 	const sphere = useRef();
 	const outline = useRef();
