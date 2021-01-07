@@ -26,10 +26,10 @@ const OrbitingSphere = ({
 	};
 
 	const orbit = () => {
-		mesh.current.position.sub(centerVect);
-		mesh.current.position.applyAxisAngle(axisVect, delta);
-		mesh.current.position.add(centerVect);
-		mesh.current.rotateOnAxis(axisVect, delta);
+		sphere.current.position.sub(centerVect);
+		sphere.current.position.applyAxisAngle(axisVect, delta);
+		sphere.current.position.add(centerVect);
+		sphere.current.rotateOnAxis(axisVect, delta);
 
 		outline.current.position.sub(centerVect);
 		outline.current.position.applyAxisAngle(axisVect, delta);
@@ -43,18 +43,18 @@ const OrbitingSphere = ({
 		outline.current.scale.set(1.05, 1.05, 1.05);
 	});
 
-	const mesh = useRef();
+	const sphere = useRef();
+	const outline = useRef();
 	const axisVect = new Vector3(...axis);
 	const centerVect = new Vector3(...center);
-
-	const outline = useRef();
 	const outlineMaterial = new MeshBasicMaterial( { side: BackSide } );
 	const outlineGeometry = new SphereGeometry(args[0], args[1], args[2]);
+	const outlineMesh = new Mesh(outlineGeometry, outlineMaterial);
 
 	return(
 		<group>
 			<Sphere
-				ref={mesh}
+				ref={sphere}
 				position={position}
 				args={args}
 				onPointerOver={onHover}
@@ -76,10 +76,11 @@ const OrbitingSphere = ({
 				visible={hovering}
 			>
 				<meshBasicMaterial
+					attach='material'
+					color={color}
 					ref={outline}
-					color={'black'}
 					side={BackSide}
-					mesh={new Mesh(outlineGeometry, outlineMaterial)}
+					mesh={outlineMesh}
 				/>
 			</Sphere>
 		</group>

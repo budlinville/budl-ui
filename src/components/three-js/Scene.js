@@ -63,7 +63,7 @@ const Scene = ({
 						center={sphere.center}
 						axis={sphere.axis}
 						args={sphere.args}
-						color={hoveredSphereId === sphere.id ? 'white' : sphere.color}
+						color={sphere.color}
 						delta = {hoveredSphereId > -1 ? 0 : 0.01}
 						hoverCallback={() => setHoveredSphereId(sphere.id)}
 						releaseCallback={() => setHoveredSphereId(-1)}
