@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Vector3 } from 'three';
-import { useFrame } from 'react-three-fiber';
+import { useFrame, useThree } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
 
 import HoveredObj from '../../../models/three-js/hovered-obj';
@@ -19,12 +19,15 @@ const OrbitingSphere = ({
 }) => {
 	const onHover = () => {
 		if (!isHovering) {
-			dispatch(addHoveredObj(HoveredObj(id, 'sphere', position)));
+			const distance = sphere.current.position.distanceTo(cameraPos);
+			console.log(distance);
+			dispatch(addHoveredObj(HoveredObj(id, 'sphere', distance)));
 		}
 	};
 	const onRelease = () => dispatch(removeHoveredObj(id));
 
 	const center = new Vector3(...useSelector(state => state.scene.center.position));
+	const cameraPos = useThree().camera.getWorldPosition(new Vector3());
 	const hovering = useSelector(state => state.scene.hovering);
 	const isHovering = !!hovering.filter(obj => obj.id === id).length;
 

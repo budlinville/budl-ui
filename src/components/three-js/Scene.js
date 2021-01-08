@@ -11,7 +11,7 @@ import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 const Scene = () => {
-	const camPos = useSelector(state => state.scene.camera.position);
+	const initCamPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
 	const hovering = useSelector(state => state.scene.hovering);
 
@@ -23,7 +23,7 @@ const Scene = () => {
 			shadowMap
 			colorManagement
 			style={{backgroundColor: 'transparent'}}
-			camera={{position: camPos, fov: 60}}
+			camera={{position: initCamPos, fov: 60}}
 		>
 			<ContextBridge>
 				{/***** CONTROLS *****/}
