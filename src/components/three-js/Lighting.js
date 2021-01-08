@@ -8,8 +8,8 @@ const Lighting = () => {
 			<ambientLight intensity={0.4}/>
 			<directionalLight
 				castShadow
-				position={[0, 30, 0]}
-				intensity={1}
+				position={[0, 2, 0]}
+				intensity={2}
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
 				shadow-camera-far={dimensions.z}	// TODO: far and near could be backwards

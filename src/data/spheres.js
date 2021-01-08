@@ -9,21 +9,18 @@ const spheres = [
 	{
 		id: 0,
 		position: [0, 18, 0],	// starting position
-		center: [0, 10, 0],		// center of orbit
 		axis: [1, 0, 0],	
 		args: [1, 25, 25],	// [size, detail, detail]
 		color: 'red'
 	},{
 		id: 1,
 		position: [0, 10, 8],
-		center: [0, 10, 0],
 		axis: [0, 1, 0],
 		args: [1, 25, 25],
 		color: 'blue'
 	},{
 		id: 2,
 		position: [8, 10, 0],
-		center: [0, 10, 0],
 		axis: [0, 0, 1],
 		args: [1, 25, 25],
 		color: 'green'
