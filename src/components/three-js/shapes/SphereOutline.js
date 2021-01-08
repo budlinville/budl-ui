@@ -10,7 +10,9 @@ const SphereOutline = ({
 	args,
 	speed,
 	color,
-	visible
+	visible,
+	scale,
+	opacity
 }) => {
 	const orbit = () => {
 		outline.current.position.sub(center);
@@ -27,8 +29,8 @@ const SphereOutline = ({
 	useFrame(() => orbit());
 
 	useEffect(() => {
-		outline.current.scale.set(1.05, 1.05, 1.05);
-	}, []);
+		outline.current.scale.set(scale, scale, scale);
+	}, [scale]);
 
 	return (
 		<Sphere
@@ -41,7 +43,8 @@ const SphereOutline = ({
 			<meshBasicMaterial
 				attach='material'
 				color={color}
-				ref={outline}
+				transparent
+				opacity={opacity}
 				side={BackSide}
 				mesh={outlineMesh}
 			/>

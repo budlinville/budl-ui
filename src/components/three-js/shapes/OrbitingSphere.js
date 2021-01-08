@@ -63,6 +63,8 @@ const OrbitingSphere = ({
 				speed={speed}
 				color={color}
 				visible={isHovering}
+				scale={1.05}
+				opacity={1}
 			/>
 		</group>
 	);
