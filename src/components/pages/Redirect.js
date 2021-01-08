@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { createBrowserHistory } from 'history';
+
+import Home from './Home';
 
 const Redirect = ({to}) => {
-	const history = useHistory();
-	useEffect(() => history.push(to));
-	return (<div>Redirecting...</div>);
+	const browserHistory = createBrowserHistory();
+	browserHistory.replace(to);
+	return <Home />;
 };
 
 export default Redirect;
