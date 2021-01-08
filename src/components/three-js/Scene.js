@@ -50,7 +50,7 @@ const Scene = () => {
 							id={sphere.id}	// used by child
 							key={sphere.id}	// used by react
 							position={sphere.position}
-							axis={sphere.axis}
+							axis={new Vector3(...sphere.axis)}
 							args={sphere.args}
 							color={sphere.color}
 							delta = {0.01}
