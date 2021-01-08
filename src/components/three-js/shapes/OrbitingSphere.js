@@ -73,8 +73,6 @@ const OrbitingSphere = ({
 				ref={outline}
 				position={position}
 				args={args}
-				onPointerOver={onHover}
-				onPointerOut={onRelease}
 				castShadow
 				visible={isHovering}
 			>
