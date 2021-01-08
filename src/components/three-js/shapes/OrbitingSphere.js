@@ -9,6 +9,12 @@ import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
 
+const isNearestHoveredObj = (objs, id) => {
+	const nearest = objs.filter(obj => obj.type === 'sphere')
+		.reduce((prev, cur) => prev.distance < cur.distance ? prev : cur, Number.POSITIVE_INFINITY);
+	return nearest.id === id;
+};
+
 const OrbitingSphere = ({
 	id,
 	position,
@@ -20,7 +26,6 @@ const OrbitingSphere = ({
 	const onHover = () => {
 		if (!isHovering) {
 			const distance = sphere.current.position.distanceTo(cameraPos);
-			console.log(distance);
 			dispatch(addHoveredObj(HoveredObj(id, 'sphere', distance)));
 		}
 	};
@@ -29,7 +34,7 @@ const OrbitingSphere = ({
 	const center = new Vector3(...useSelector(state => state.scene.center.position));
 	const cameraPos = useThree().camera.getWorldPosition(new Vector3());
 	const hovering = useSelector(state => state.scene.hovering);
-	const isHovering = !!hovering.filter(obj => obj.id === id).length;
+	const isHovering = isNearestHoveredObj(hovering, id);
 
 	const sphere = useRef();
 	const dispatch = useDispatch();
