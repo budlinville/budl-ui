@@ -5,6 +5,7 @@ import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
 
 import HoveredObj from '../../../models/three-js/hovered-obj';
+import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
 
@@ -16,13 +17,6 @@ const OrbitingSphere = ({
 	axis,
 	delta = 0.01
 }) => {
-	const orbit = () => {
-		sphere.current.position.sub(center);
-		sphere.current.position.applyAxisAngle(axis, speed);
-		sphere.current.position.add(center);
-		sphere.current.rotateOnAxis(axis, speed);
-	};
-
 	const onHover = () => {
 		if (!isHovering) {
 			dispatch(addHoveredObj(HoveredObj(id, 'sphere', position)));
@@ -38,7 +32,7 @@ const OrbitingSphere = ({
 	const dispatch = useDispatch();
 	const speed = hovering.length ? 0 : delta;
 
-	useFrame(() => orbit());
+	useFrame(() => orbit(sphere, center, axis, speed));
 
 	return(
 		<group>

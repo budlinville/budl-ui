@@ -2,9 +2,11 @@ import React, { useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import { Box, MeshWobbleMaterial } from '@react-three/drei';
 
+import { spin } from '../animations';
+
 const SpinningBox = ({ position, args, color }) => {
 	const mesh = useRef(null);
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+	useFrame(() => spin(mesh));
 	return(
 		<Box castShadow ref={mesh} position={position} args={args}>
 			{/*<meshStandardMaterial attach="material" color={color} />*/}
