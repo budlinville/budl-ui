@@ -1,48 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Vector3, BackSide, SphereGeometry, MeshBasicMaterial, Mesh } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
 
+import HoveredObj from '../../../models/three-js/hovered-obj';
+import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
+
 const OrbitingSphere = ({
+	id,
 	position,
 	args,
 	color,
 	axis = [0, 0, 1],
-	delta = 0.01,
-	hoverCallback = () => ({}),
-	releaseCallback = () => ({})
+	delta = 0.01
 }) => {
-	const [hovering, setHovering] = useState(false);
-	const center = useSelector(state => state.scene.center.position);
-
-	const onHover = () => {
-		setHovering(true);
-		hoverCallback();
-	};
-
-	const onRelease = () => {
-		setHovering(false);
-		releaseCallback();
-	};
-
 	const orbit = () => {
 		sphere.current.position.sub(centerVect);
-		sphere.current.position.applyAxisAngle(axisVect, delta);
+		sphere.current.position.applyAxisAngle(axisVect, speed);
 		sphere.current.position.add(centerVect);
-		sphere.current.rotateOnAxis(axisVect, delta);
+		sphere.current.rotateOnAxis(axisVect, speed);
 
 		outline.current.position.sub(centerVect);
-		outline.current.position.applyAxisAngle(axisVect, delta);
+		outline.current.position.applyAxisAngle(axisVect, speed);
 		outline.current.position.add(centerVect);
-		outline.current.rotateOnAxis(axisVect, delta);
+		outline.current.rotateOnAxis(axisVect, speed);
 	};
 
-	useFrame(() => orbit());
+	const onHover = () => dispatch(addHoveredObj(HoveredObj(id, 'sphere', position)));
+	const onRelease = () => dispatch(removeHoveredObj(id));
 
-	useEffect(() => {
-		outline.current.scale.set(1.05, 1.05, 1.05);
-	}, []);
+	const center = useSelector(state => state.scene.center.position);
+	const isHovering = !!useSelector(state => state.scene.hovering)
+		.filter(obj => obj.id === id).length;
 
 	const sphere = useRef();
 	const outline = useRef();
@@ -52,6 +42,13 @@ const OrbitingSphere = ({
 	const outlineMaterial = new MeshBasicMaterial();
 	const outlineGeometry = new SphereGeometry(args[0], args[1], args[2]);
 	const outlineMesh = new Mesh(outlineGeometry, outlineMaterial);
+	const speed = isHovering ? 0 : delta;
+
+	useFrame(() => orbit());
+
+	useEffect(() => {
+		outline.current.scale.set(1.05, 1.05, 1.05);
+	}, []);
 
 	return(
 		<group>
@@ -63,7 +60,7 @@ const OrbitingSphere = ({
 				onPointerOut={onRelease}
 				castShadow
 			>
-				{ hovering
+				{ isHovering
 					? <meshToonMaterial attach='material' color='white' />
 					: <meshPhongMaterial attach='material' color={color} />
 				}
@@ -75,7 +72,7 @@ const OrbitingSphere = ({
 				onPointerOver={onHover}
 				onPointerOut={onRelease}
 				castShadow
-				visible={hovering}
+				visible={isHovering}
 			>
 				<meshBasicMaterial
 					attach='material'

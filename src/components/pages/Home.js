@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import {useDispatch } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import sphereData from '../../data/spheres';
 import Scene from '../three-js/Scene';
-import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene-action';
+import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 
 const style = color => ({
 	background: `linear-gradient(white, ${color}, white)`
@@ -11,8 +11,8 @@ const style = color => ({
 
 const Home = () => {
 	const dispatch = useDispatch();
-	const [hoveredSphereId, setHoveredSphereId] = useState(-1);	// id of sphere being hovered over; -1 if none
-	const backgroundColor = hoveredSphereId > -1 ? sphereData[hoveredSphereId].color : 'gray';
+	const hovering = useSelector(state => state.scene.hovering);
+	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
 
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
@@ -28,7 +28,7 @@ const Home = () => {
 
 	return (
 		<div style={style(backgroundColor)}>
-			<Scene hoveredSphereId={hoveredSphereId} setHoveredSphereId={setHoveredSphereId} />
+			<Scene />
 		</div>
 	);
 };

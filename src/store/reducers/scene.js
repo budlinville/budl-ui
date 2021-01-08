@@ -14,7 +14,7 @@ const initialState = {
 		position: [0, 10, 0]
 	},
 	dimensions: {x: 50, y: 50, z: 50},
-	hovered: []
+	hovering: []
 };
 
 const sceneReducer = (state=initialState, action) => {
@@ -48,13 +48,13 @@ const sceneReducer = (state=initialState, action) => {
 		case ADD_HOVERED_OBJ:
 			return {
 				...state,
-				hovered: state.hovered.concat(action.obj)
+				hovering: state.hovering.concat(action.obj)
 			};
 		case REM_HOVERED_OBJ:
 			return {
 				...state,
 				// TODO : This will create a new array; maybe change
-				hovered: state.items.filter(obj => obj.id === action.id)
+				hovering: state.hovering.filter(obj => obj.id === action.id)
 			};
 		default:
 			return state;

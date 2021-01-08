@@ -10,12 +10,10 @@ import Lighting from './Lighting';
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
-const Scene = ({
-	hoveredSphereId,
-	setHoveredSphereId
-}) => {
+const Scene = () => {
 	const camPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
+	const hovering = useSelector(state => state.scene.hovering);
 
 	// Needed to connect components inside canvas with redux's context
 	const ContextBridge = useContextBridge(ReactReduxContext);
@@ -44,22 +42,18 @@ const Scene = ({
 				<SpinningBox
 					position={center}
 					args={[3, 3, 3]}
-					color={ hoveredSphereId > -1
-						? sphereData[hoveredSphereId].color
-						: 'gray'
-					}
+					color={ hovering.length ? sphereData[hovering[0].id].color : 'gray' }
 				/>
 				{sphereData.map(sphere => {
 					return (
 						<OrbitingSphere
-							key={sphere.id}
+							id={sphere.id}	// used by child
+							key={sphere.id}	// used by react
 							position={sphere.position}
 							axis={sphere.axis}
 							args={sphere.args}
 							color={sphere.color}
-							delta = {hoveredSphereId > -1 ? 0 : 0.01}
-							hoverCallback={() => setHoveredSphereId(sphere.id)}
-							releaseCallback={() => setHoveredSphereId(-1)}
+							delta = {0.01}
 						/>
 					);
 				})}
