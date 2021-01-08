@@ -24,7 +24,7 @@ const Home = () => {
 		dispatch(setSceneDimensions(DIMENSIONS))
 	}, [dispatch]);
 
-	useEffect(() => setSceneState());
+	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
 		<div style={style(backgroundColor)}>
