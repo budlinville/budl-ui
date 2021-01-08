@@ -6,7 +6,7 @@ import Scene from '../three-js/Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene-action';
 
 const style = color => ({
-	background: `linear-gradient(${color}, white)`
+	background: `linear-gradient(white, ${color}, white)`
 });
 
 const Home = () => {
