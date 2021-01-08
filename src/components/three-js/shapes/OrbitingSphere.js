@@ -46,7 +46,7 @@ const OrbitingSphere = ({
 	const outlineMaterial = new MeshBasicMaterial();
 	const outlineGeometry = new SphereGeometry(args[0], args[1], args[2]);
 	const outlineMesh = new Mesh(outlineGeometry, outlineMaterial);
-	const speed = isHovering ? 0 : delta;
+	const speed = hovering.length ? 0 : delta;
 
 	useFrame(() => orbit());
 
