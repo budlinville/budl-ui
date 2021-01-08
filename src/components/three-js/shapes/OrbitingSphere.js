@@ -27,12 +27,16 @@ const OrbitingSphere = ({
 		outline.current.rotateOnAxis(axisVect, speed);
 	};
 
-	const onHover = () => dispatch(addHoveredObj(HoveredObj(id, 'sphere', position)));
+	const onHover = () => {
+		if (!isHovering) {
+			dispatch(addHoveredObj(HoveredObj(id, 'sphere', position)));
+		}
+	};
 	const onRelease = () => dispatch(removeHoveredObj(id));
 
 	const center = useSelector(state => state.scene.center.position);
-	const isHovering = !!useSelector(state => state.scene.hovering)
-		.filter(obj => obj.id === id).length;
+	const hovering = useSelector(state => state.scene.hovering);
+	const isHovering = !!hovering.filter(obj => obj.id === id).length;
 
 	const sphere = useRef();
 	const outline = useRef();

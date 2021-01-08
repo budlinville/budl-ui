@@ -51,10 +51,12 @@ const sceneReducer = (state=initialState, action) => {
 				hovering: state.hovering.concat(action.obj)
 			};
 		case REM_HOVERED_OBJ:
+			const newHovering = [...state.hovering];
+			const index = state.hovering.indexOf(obj => obj.id === action.id);
+			newHovering.splice(index, 1);
 			return {
 				...state,
-				// TODO : This will create a new array; maybe change
-				hovering: state.hovering.filter(obj => obj.id === action.id)
+				hovering: newHovering
 			};
 		default:
 			return state;
