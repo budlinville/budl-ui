@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Vector3, BackSide, SphereGeometry, MeshBasicMaterial, Mesh } from 'three';
 import { useFrame } from 'react-three-fiber';
 import { Sphere } from '@react-three/drei';
@@ -46,6 +46,7 @@ const OrbitingSphere = ({
 
 	const sphere = useRef();
 	const outline = useRef();
+	const dispatch = useDispatch();
 	const axisVect = new Vector3(...axis);
 	const centerVect = new Vector3(...center);
 	const outlineMaterial = new MeshBasicMaterial();

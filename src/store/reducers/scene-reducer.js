@@ -1,4 +1,10 @@
-import { SET_CAM_POS, SET_ORBIT_CENTER, SET_SCENE_DIMENSIONS } from '../actions/types';
+import {
+	SET_CAM_POS,
+	SET_ORBIT_CENTER,
+	SET_SCENE_DIMENSIONS,
+	ADD_HOVERED_OBJ,
+	REM_HOVERED_OBJ
+} from '../actions/types';
 
 const initialState = {
 	camera: {
@@ -7,7 +13,8 @@ const initialState = {
 	center: {
 		position: [0, 10, 0]
 	},
-	dimensions: {x: 50, y: 50, z: 50}
+	dimensions: {x: 50, y: 50, z: 50},
+	hovered: []
 };
 
 const sceneReducer = (state=initialState, action) => {
@@ -38,6 +45,17 @@ const sceneReducer = (state=initialState, action) => {
 					z: action.dimensions[2]
 				}
 			}
+		case ADD_HOVERED_OBJ:
+			return {
+				...state,
+				hovered: state.hovered.concat(action.obj)
+			};
+		case REM_HOVERED_OBJ:
+			return {
+				...state,
+				// TODO : This will create a new array; maybe change
+				hovered: state.items.filter(obj => obj.id === action.id)
+			};
 		default:
 			return state;
 	}
