@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Lighting = sceneSize => {
+const Lighting = () => {
+	const dimensions = useSelector(state => state.scene.dimensions);
 	return (
 		<group>
 			<ambientLight intensity={0.4}/>
@@ -10,13 +12,14 @@ const Lighting = sceneSize => {
 				intensity={1}
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
-				shadow-camera-far={sceneSize}
-				shadow-camera-left={-1 * sceneSize}
-				shadow-camera-right={sceneSize}
-				shadow-camera-top={sceneSize}
-				shadow-camera-bottom={-1 * sceneSize}
+				shadow-camera-far={dimensions.z}	// TODO: far and near could be backwards
+				shadow-camera-near={-1 * dimensions.z}
+				shadow-camera-left={-1 * dimensions.x}
+				shadow-camera-right={dimensions.x}
+				shadow-camera-top={dimensions.y}
+				shadow-camera-bottom={-1 * dimensions.y}
 			/>
-			</group>
+		</group>
 	);
 }
 

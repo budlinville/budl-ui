@@ -14,8 +14,6 @@ const Scene = ({
 	hoveredSphereId,
 	setHoveredSphereId
 }) => {
-	const SCENE_SIZE = 50;	// actually twice this, because using both positive and negative coords
-
 	const camPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
 
@@ -38,10 +36,10 @@ const Scene = ({
 					maxDistance={30}/>
 
 				{/***** LIGHTING *****/}
-				<Lighting sceneSize={SCENE_SIZE}/>
+				<Lighting />
 
 				{/***** GEOMETRY *****/}
-				{/*<Floor position={[0, 0, 0]} args={[SCENE_SIZE, SCENE_SIZE]} color='blue'/>*/}
+				{/*<Floor position={[0, 0, 0]} args={[dimensions.x, dimensions.y]} color='blue'/>*/}
 
 				<SpinningBox
 					position={center}
@@ -63,7 +61,7 @@ const Scene = ({
 							hoverCallback={() => setHoveredSphereId(sphere.id)}
 							releaseCallback={() => setHoveredSphereId(-1)}
 						/>
-					);	
+					);
 				})}
 				<Stars/>
 			</ContextBridge>

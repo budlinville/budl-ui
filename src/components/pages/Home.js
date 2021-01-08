@@ -3,7 +3,7 @@ import {useDispatch } from 'react-redux';
 
 import sphereData from '../../data/spheres';
 import Scene from '../three-js/Scene';
-import { setOrbitCenter, setCamPos } from '../../store/actions/scene-action';
+import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene-action';
 
 const style = color => ({
 	background: `linear-gradient(${color}, white)`
@@ -18,8 +18,10 @@ const Home = () => {
 	const setSceneState = useCallback(() => {
 		const ORBIT_CENTER = [0, 10, 0];
 		const CAM_POS = [0, 15, -15];
+		const DIMENSIONS = [50, 50, 50];
 		dispatch(setOrbitCenter(ORBIT_CENTER));
 		dispatch(setCamPos(CAM_POS));
+		dispatch(setSceneDimensions(DIMENSIONS))
 	}, [dispatch]);
 
 	useEffect(() => setSceneState());
