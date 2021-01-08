@@ -11,7 +11,7 @@ import SphereOutline from './SphereOutline';
 
 const SphereMesh = ({isHovering, isPressed, color}) => {
 	if (isPressed) {
-		return <meshToonMaterial attach='material' color={color} />;
+		return <meshPhongMaterial attach='material' color='white' />;
 	} else if (isHovering) {
 		return <meshToonMaterial attach='material' color='white' />;
 	} else {
@@ -96,10 +96,10 @@ const OrbitingSphere = ({
 				axis={axis}
 				args={args}
 				speed={speed}
-				color={'white'}
+				color={pressed ? color : 'white'}
 				visible={isHovering}
 				scale={2}
-				opacity={pressed ? 0.9 : 0.3}
+				opacity={0.4}
 			/>
 		</group>
 	);
