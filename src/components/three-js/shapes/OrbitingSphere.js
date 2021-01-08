@@ -24,12 +24,18 @@ const OrbitingSphere = ({
 	delta = 0.01
 }) => {
 	const onHover = () => {
+		document.getElementById('root').style.cursor = 'pointer';
 		if (!isHovering) {
 			const distance = sphere.current.position.distanceTo(cameraPos);
 			dispatch(addHoveredObj(HoveredObj(id, 'sphere', distance)));
 		}
 	};
-	const onRelease = () => dispatch(removeHoveredObj(id));
+	const onRelease = () => {
+		if (hovering.length <= 1) {	// last hovered object
+			document.getElementById('root').style.cursor = 'auto';
+		}
+		dispatch(removeHoveredObj(id));
+	};
 
 	const center = new Vector3(...useSelector(state => state.scene.center.position));
 	const cameraPos = useThree().camera.getWorldPosition(new Vector3());
