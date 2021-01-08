@@ -64,9 +64,19 @@ const OrbitingSphere = ({
 				args={args}
 				speed={speed}
 				color={color}
-				visible={isHovering}
-				scale={1.05}
+				scale={isHovering ? 1.1 : 1.02}
 				opacity={1}
+			/>
+			<SphereOutline
+				position={position}
+				center={center}
+				axis={axis}
+				args={args}
+				speed={speed}
+				color={'white'}
+				visible={isHovering}
+				scale={2}
+				opacity={0.3}
 			/>
 		</group>
 	);
