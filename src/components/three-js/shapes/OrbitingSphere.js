@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Vector3 } from 'three';
 import { useFrame, useThree } from 'react-three-fiber';
@@ -8,6 +8,16 @@ import HoveredObj from '../../../models/three-js/hovered-obj';
 import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
+
+const SphereMesh = ({isHovering, isPressed, color}) => {
+	if (isPressed) {
+		return <meshToonMaterial attach='material' color={color} />;
+	} else if (isHovering) {
+		return <meshToonMaterial attach='material' color='white' />;
+	} else {
+		return <meshPhongMaterial attach='material' color={color} />;
+	}
+}
 
 const isNearestHoveredObj = (objs, id) => {
 	const nearest = objs.filter(obj => obj.type === 'sphere')
@@ -37,14 +47,22 @@ const OrbitingSphere = ({
 		dispatch(removeHoveredObj(id));
 	};
 
+	const onPress = () => {
+		setPressed(true);
+	}
+
+	const onPressRelease = () => {
+		setPressed(false);
+	};
+
 	const center = new Vector3(...useSelector(state => state.scene.center.position));
 	const cameraPos = useThree().camera.getWorldPosition(new Vector3());
 	const hovering = useSelector(state => state.scene.hovering);
 	const isHovering = isNearestHoveredObj(hovering, id);
-
 	const sphere = useRef();
 	const dispatch = useDispatch();
 	const speed = hovering.length ? 0 : delta;
+	const [pressed, setPressed] = useState(false);
 
 	useFrame(() => orbit(sphere, center, axis, speed));
 
@@ -56,12 +74,11 @@ const OrbitingSphere = ({
 				args={args}
 				onPointerOver={onHover}
 				onPointerOut={onRelease}
+				onPointerDown={onPress}
+				onPointerUp={onPressRelease}
 				castShadow
 			>
-				{ isHovering
-					? <meshToonMaterial attach='material' color='white' />
-					: <meshPhongMaterial attach='material' color={color} />
-				}
+				<SphereMesh isPressed={pressed} isHovering={isHovering} color={color} />
 			</Sphere>
 			<SphereOutline
 				position={position}
@@ -82,7 +99,7 @@ const OrbitingSphere = ({
 				color={'white'}
 				visible={isHovering}
 				scale={2}
-				opacity={0.3}
+				opacity={pressed ? 0.9 : 0.3}
 			/>
 		</group>
 	);
