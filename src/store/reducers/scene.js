@@ -3,7 +3,8 @@ import {
 	SET_ORBIT_CENTER,
 	SET_SCENE_DIMENSIONS,
 	ADD_HOVERED_OBJ,
-	REM_HOVERED_OBJ
+	REM_HOVERED_OBJ,
+	TOGGLE_BUTTON_PRESS
 } from '../actions/types';
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
 		position: [0, 10, 0]
 	},
 	dimensions: {x: 50, y: 50, z: 50},
-	hovering: []
+	hovering: [],
+	buttonPressed: false
 };
 
 const sceneReducer = (state=initialState, action) => {
@@ -58,6 +60,11 @@ const sceneReducer = (state=initialState, action) => {
 				...state,
 				hovering: newHovering
 			};
+		case TOGGLE_BUTTON_PRESS:
+			return {
+				...state,
+				buttonPressed: !state.buttonPressed
+			}
 		default:
 			return state;
 	}
