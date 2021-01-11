@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import './styles/App.css';
 import store from './store';
-import Redirect from './components/pages/Redirect';
+import Redirect from './components/Redirect';
 import About from './components/pages/About';
 import Header from './components/Header';
 
