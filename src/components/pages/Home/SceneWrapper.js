@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import sphereData from '../../data/spheres';
-import Scene from '../three-js/Scene';
-import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
+import sphereData from '../../../data/spheres';
+import Scene from '../../three-js/Scene';
+import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../../store/actions/scene';
 
 const style = color => ({
-	background: `linear-gradient(white, ${color}, white)`
+	background: `linear-gradient(white, ${color}, white)`,
+	height: '100%'
 });
 
-const Home = () => {
+const SceneWrapper = () => {
 	const dispatch = useDispatch();
 	const hovering = useSelector(state => state.scene.hovering);
 	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
@@ -33,4 +34,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default SceneWrapper;
