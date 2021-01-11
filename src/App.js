@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
 
 import './styles/App.css';
 import store from './store';
@@ -13,6 +14,8 @@ import Portfolio from './components/pages/Portfolio';
 import Store from './components/pages/Store';
 import Messenger from './components/pages/Messenger';
 import Header from './components/Header';
+
+export const history = createBrowserHistory();
 
 function App() {
   return (

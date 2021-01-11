@@ -26,8 +26,11 @@ const OrbitingSphere = ({
 	args,
 	color,
 	axis,
-	delta = 0.01
+	delta = 0.01,
+	nav,
+	navCallback
 }) => {
+	console.log('OrbitingSphere', typeof navCallback, navCallback);
 	const onHover = () => {
 		document.getElementById('root').style.cursor = 'pointer';
 		if (!isHovering) {
@@ -48,6 +51,7 @@ const OrbitingSphere = ({
 
 	const onPressRelease = () => {
 		setPressed(false);
+		navCallback(nav);
 	};
 
 	const center = new Vector3(...useSelector(state => state.scene.center.position));

@@ -1,9 +1,8 @@
-import { createBrowserHistory } from 'history';
+import { history } from '../App';
 
 // comp must be same component returned for to's path
 const Redirect = ({to, comp=null}) => {
-	const browserHistory = createBrowserHistory();
-	browserHistory.replace(to);
+	history.replace(to);
 	return comp;
 };
 

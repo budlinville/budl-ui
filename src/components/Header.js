@@ -8,6 +8,7 @@ const Header = () => {
 	const sceneClassName = pathname === '/' || pathname === '/home'
 		? 'header-scene-container-expanded'
 		: 'header-page-container-contracted';
+		console.log('Header - pathname =>', pathname);
 	return (
 		<div className={sceneClassName}>
 			{ Scene && <Scene/> }
