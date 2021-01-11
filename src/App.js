@@ -9,7 +9,9 @@ import { Provider } from 'react-redux';
 import './styles/App.css';
 import store from './store';
 import Redirect from './components/Redirect';
-import About from './components/pages/About';
+import Portfolio from './components/pages/Portfolio';
+import Store from './components/pages/Store';
+import Messenger from './components/pages/Messenger';
 import Header from './components/Header';
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
             <Redirect {...props} to='/home'/>
           )}/>
           <Route path='/home' component={null}/>
-          <Route path='/about' component={About}/>
+          <Route path='/portfolio' component={Portfolio}/>
+          <Route path='/store' component={Store}/>
+          <Route path='/messenger' component={Messenger}/>
         </Switch>
       </Router>
     </Provider>
