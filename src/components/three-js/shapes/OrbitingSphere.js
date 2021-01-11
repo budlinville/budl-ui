@@ -9,14 +9,9 @@ import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
 
-const SphereMesh = ({isHovering, isPressed, color}) => {
-	if (isPressed) {
-		return <meshToonMaterial attach='material' color={color} />;
-	} else if (isHovering) {
-		return <meshToonMaterial attach='material' color='white' />;
-	} else {
-		return <meshPhongMaterial attach='material' color={color} />;
-	}
+const SphereMesh = ({isHovering, color}) => {
+	const meshColor = isHovering ? 'white' : color;
+	return <meshPhongMaterial attach='material' color={meshColor} />;
 }
 
 const isNearestHoveredObj = (objs, id) => {
@@ -96,7 +91,7 @@ const OrbitingSphere = ({
 				axis={axis}
 				args={args}
 				speed={speed}
-				color={'white'}
+				color={pressed ? color : 'white'}
 				visible={isHovering}
 				scale={2}
 				opacity={pressed ? 0.9 : 0.3}
