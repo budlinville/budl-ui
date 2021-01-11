@@ -8,19 +8,20 @@ import { Provider } from 'react-redux';
 
 import './styles/App.css';
 import store from './store';
-import Home from './components/pages/Home';
-import About from './components/pages/About';
 import Redirect from './components/pages/Redirect';
+import About from './components/pages/About';
+import Header from './components/Header';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
+        <Header />
         <Switch>
           <Route exact path='/' render={props => (
             <Redirect {...props} to='/home'/>
           )}/>
-          <Route path='/home' component={Home}/>
+          <Route path='/home' component={null}/>
           <Route path='/about' component={About}/>
         </Switch>
       </Router>

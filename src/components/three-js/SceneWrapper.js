@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import sphereData from '../../../data/spheres';
-import Scene from '../../three-js/Scene';
-import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../../store/actions/scene';
+import sphereData from '../../data/spheres';
+import Scene from './Scene';
+import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 
 const style = color => ({
 	background: `linear-gradient(white, ${color}, white)`
@@ -27,7 +27,7 @@ const SceneWrapper = () => {
 	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
-		<div style={style(backgroundColor)}>
+		<div className='scene-wrapper' style={style(backgroundColor)}>
 			<Scene />
 		</div>
 	);

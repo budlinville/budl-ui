@@ -1,11 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom'
 
-const Header = ({ Scene }) => {
-	const location = useLocation();
-  console.log(location.pathname);
-	const sceneExpanded = false;
-	const sceneClassName = sceneExpanded
+import Scene from './three-js/SceneWrapper';
+
+const Header = () => {
+	const { pathname } = useLocation();
+	const sceneClassName = pathname === '/' || pathname === '/home'
 		? 'header-scene-container-expanded'
 		: 'header-page-container-contracted';
 	return (
