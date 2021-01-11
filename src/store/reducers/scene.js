@@ -60,11 +60,6 @@ const sceneReducer = (state=initialState, action) => {
 				...state,
 				hovering: newHovering
 			};
-		case TOGGLE_BUTTON_PRESS:
-			return {
-				...state,
-				buttonPressed: !state.buttonPressed
-			}
 		default:
 			return state;
 	}
