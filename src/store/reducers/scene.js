@@ -4,7 +4,7 @@ import {
 	SET_SCENE_DIMENSIONS,
 	ADD_HOVERED_OBJ,
 	REM_HOVERED_OBJ,
-	TOGGLE_BUTTON_PRESS
+	SET_HEADER_EXPANDED
 } from '../actions/types';
 
 const initialState = {
@@ -16,7 +16,8 @@ const initialState = {
 	},
 	dimensions: {x: 50, y: 50, z: 50},
 	hovering: [],
-	buttonPressed: false
+	buttonPressed: false,
+	headerExpanded: true
 };
 
 const sceneReducer = (state=initialState, action) => {
@@ -60,6 +61,12 @@ const sceneReducer = (state=initialState, action) => {
 				...state,
 				hovering: newHovering
 			};
+		case SET_HEADER_EXPANDED:	// TODO : move this out of scene.js
+		console.log('expanded', action.expanded);
+			return {
+				...state,
+				headerExpanded: action.expanded
+			}
 		default:
 			return state;
 	}
