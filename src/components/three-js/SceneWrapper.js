@@ -32,8 +32,6 @@ const SceneWrapper = () => {
 
 	useEffect(() => setSceneState(), [setSceneState]);
 
-	console.log('SceneWrapper', typeof navigate, navigate);
-
 	return (
 		<div className='scene-wrapper' style={style(backgroundColor)}>
 			<Scene navCallback={navigate} />

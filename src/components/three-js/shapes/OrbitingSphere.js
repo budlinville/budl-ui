@@ -30,7 +30,6 @@ const OrbitingSphere = ({
 	nav,
 	navCallback
 }) => {
-	console.log('OrbitingSphere', typeof navCallback, navCallback);
 	const onHover = () => {
 		document.getElementById('root').style.cursor = 'pointer';
 		if (!isHovering) {

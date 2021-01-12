@@ -11,7 +11,6 @@ import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 const Scene = ({ navCallback }) => {
-	console.log('Scene', typeof navCallback, navCallback);
 	const initCamPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
 	const hovering = useSelector(state => state.scene.hovering);
