@@ -12,8 +12,8 @@ export const history = createBrowserHistory();
 const App = () => {
   return (
     <Provider store={store}>
-        <Header/>
-        <Routes/>
+      <Header/>
+      <Routes history={history}/>
     </Provider>
   );
 }

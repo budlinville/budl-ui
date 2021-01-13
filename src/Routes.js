@@ -13,9 +13,7 @@ const Routes = () => {
 	return (
 		<Router>
 			<Switch>
-				<Route exact path='/' render={props => (
-					<Redirect {...props} to='/home'/>
-				)}/>
+				<Route exact path='/' render={ () => <Redirect to='/home'/> }/>
 				<Route path='/home' component={null}/>
 				<Route path='/portfolio' component={Portfolio}/>
 				<Route path='/store' component={Store}/>
