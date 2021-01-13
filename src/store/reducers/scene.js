@@ -62,7 +62,6 @@ const sceneReducer = (state=initialState, action) => {
 				hovering: newHovering
 			};
 		case SET_HEADER_EXPANDED:	// TODO : move this out of scene.js
-			console.log('expanded', action.expanded);
 			return {
 				...state,
 				headerExpanded: action.expanded

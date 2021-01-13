@@ -5,6 +5,7 @@ import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 import { history } from '../../App';
+import { setHeaderExpanded } from '../../store/actions/scene';
 
 const style = color => ({
 	background: `linear-gradient(white, ${color}, white)`
@@ -15,10 +16,10 @@ const SceneWrapper = () => {
 	const hovering = useSelector(state => state.scene.hovering);
 	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
 
-	const navigate = useCallback(to => {
-		console.log('TODO: header is not changing size after navigation');
+	const navigate = to => {
+		dispatch(setHeaderExpanded(false));
 		history.push(to);
-	}, []);
+	};
 
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
