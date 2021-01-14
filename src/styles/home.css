@@ -8,4 +8,7 @@
 
 .header-scene-container-contracted {
 	height: 15vh;
+	border-radius: 0px 0px 20px 20px;
+	overflow: hidden;
+	box-shadow: 0px 5px 5px grey;
 }

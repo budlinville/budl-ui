@@ -24,7 +24,7 @@ class Portfolio extends Component {
 				) : (
 					<div>
 						<button onClick={this.toggleDisplayBio}>Read more</button>
-					</div>        
+					</div>
 				)}
 			</div>
 		)
