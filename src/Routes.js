@@ -12,7 +12,7 @@ import Messenger from './components/pages/Messenger';
 
 const Routes = ({ history }) => {
 	return (
-		<Router history={history}>
+		<Router history={ history }>
 			<Header/>
 			<Switch>
 				<Route exact path='/' render={ () => <Redirect to='/home'/> }/>
