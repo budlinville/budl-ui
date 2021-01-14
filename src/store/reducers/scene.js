@@ -17,7 +17,7 @@ const initialState = {
 	dimensions: {x: 50, y: 50, z: 50},
 	hovering: [],
 	buttonPressed: false,
-	headerExpanded: true
+	headerExpanded: false
 };
 
 const sceneReducer = (state=initialState, action) => {
