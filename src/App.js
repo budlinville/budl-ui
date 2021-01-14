@@ -30,7 +30,6 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-      <Header/>
       <Routes history={history}/>
     </Provider>
   );

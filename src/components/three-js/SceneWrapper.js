@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
-import { history } from '../../App';
 
 const style = color => ({
 	background: `linear-gradient(white, ${color}, white)`
 });
 
-const SceneWrapper = () => {
+const SceneWrapper = ({ history }) => {
 	const dispatch = useDispatch();
 	const hovering = useSelector(state => state.scene.hovering);
 	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
@@ -38,4 +38,4 @@ const SceneWrapper = () => {
 	);
 };
 
-export default SceneWrapper;
+export default withRouter(SceneWrapper);
