@@ -1,29 +1,37 @@
-import React from 'react';
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch
-} from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
 
 import './styles/App.css';
 import store from './store';
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import Redirect from './components/pages/Redirect';
+import { setHeaderExpanded } from './store/actions/scene';
+import Header from './components/Header';
+import Routes from './Routes';
 
-function App() {
+export const history = createBrowserHistory();
+
+history.listen(location => {
+  const { pathname } = location;
+  const { scene : { headerExpanded }} = store.getState();
+  const atHome = pathname === '/' || pathname === '/home';
+  if (atHome && !headerExpanded) {
+    store.dispatch(setHeaderExpanded(true));
+  } else if (!atHome && headerExpanded) {
+    store.dispatch(setHeaderExpanded(false));
+  }
+})
+
+const App = () => {
+  useEffect(() => {
+    const { pathname } = history.location;
+    if (pathname === '/home' || pathname === '/') {
+      store.dispatch(setHeaderExpanded(true));
+    }
+  }, []);
   return (
     <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path='/' render={props => (
-            <Redirect {...props} to='/home'/>
-          )}/>
-          <Route path='/home' component={Home}/>
-          <Route path='/about' component={About}/>
-        </Switch>
-      </Router>
+      <Header/>
+      <Routes history={history}/>
     </Provider>
   );
 }

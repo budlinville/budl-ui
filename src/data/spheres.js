@@ -11,19 +11,25 @@ const spheres = [
 		position: [0, 18, 0],	// starting position
 		axis: [1, 0, 0],	
 		args: [1, 25, 25],	// [size, detail, detail]
-		color: 'red'
+		color: 'red',
+		nav: '/portfolio',
+		label: 'Portfolio',
 	},{
 		id: 1,
 		position: [0, 10, 8],
 		axis: [0, 1, 0],
 		args: [1, 25, 25],
-		color: 'blue'
+		color: 'blue',
+		nav: '/store',
+		label: 'Store'
 	},{
 		id: 2,
 		position: [8, 10, 0],
 		axis: [0, 0, 1],
 		args: [1, 25, 25],
-		color: 'green'
+		color: 'green',
+		nav: '/messenger',
+		label: 'Messenger'
 	},
 ];
 

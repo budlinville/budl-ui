@@ -2,17 +2,22 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import sphereData from '../../data/spheres';
-import Scene from '../three-js/Scene';
+import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
+import { history } from '../../App';
 
 const style = color => ({
 	background: `linear-gradient(white, ${color}, white)`
 });
 
-const Home = () => {
+const SceneWrapper = () => {
 	const dispatch = useDispatch();
 	const hovering = useSelector(state => state.scene.hovering);
 	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
+
+	const navigate = to => {
+		history.push(to);
+	};
 
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
@@ -27,10 +32,10 @@ const Home = () => {
 	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
-		<div style={style(backgroundColor)}>
-			<Scene />
+		<div className='scene-wrapper' style={style(backgroundColor)}>
+			<Scene navCallback={navigate} />
 		</div>
 	);
 };
 
-export default Home;
+export default SceneWrapper;

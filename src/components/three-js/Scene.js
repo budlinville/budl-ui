@@ -10,7 +10,7 @@ import Lighting from './Lighting';
 import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
-const Scene = () => {
+const Scene = ({ navCallback }) => {
 	const initCamPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
 	const hovering = useSelector(state => state.scene.hovering);
@@ -54,6 +54,8 @@ const Scene = () => {
 							args={sphere.args}
 							color={sphere.color}
 							delta = {0.01}
+							nav={sphere.nav}
+							navCallback={navCallback}
 						/>
 					);
 				})}

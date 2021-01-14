@@ -3,7 +3,8 @@ import {
 	SET_ORBIT_CENTER,
 	SET_SCENE_DIMENSIONS,
 	ADD_HOVERED_OBJ,
-	REM_HOVERED_OBJ
+	REM_HOVERED_OBJ,
+	SET_HEADER_EXPANDED
 } from '../actions/types';
 
 const initialState = {
@@ -14,7 +15,9 @@ const initialState = {
 		position: [0, 10, 0]
 	},
 	dimensions: {x: 50, y: 50, z: 50},
-	hovering: []
+	hovering: [],
+	buttonPressed: false,
+	headerExpanded: false
 };
 
 const sceneReducer = (state=initialState, action) => {
@@ -58,6 +61,11 @@ const sceneReducer = (state=initialState, action) => {
 				...state,
 				hovering: newHovering
 			};
+		case SET_HEADER_EXPANDED:	// TODO : move this out of scene.js
+			return {
+				...state,
+				headerExpanded: action.expanded
+			}
 		default:
 			return state;
 	}

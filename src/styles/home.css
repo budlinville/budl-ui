@@ -1,0 +1,11 @@
+.scene-wrapper {
+	height: 100%;
+}
+
+.header-scene-container-expanded {
+	height: 100vh;
+}
+
+.header-scene-container-contracted {
+	height: 15vh;
+}
