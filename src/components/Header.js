@@ -16,7 +16,7 @@ const Header = () => {
 		? 'header-scene-container-expanded'
 		: 'header-scene-container-contracted';
 	return (
-		<div onClick={onClickHandler} className={sceneClassName}>
+		<div onTouchStart={onClickHandler} onClick={onClickHandler} className={sceneClassName}>
 			<Scene/>
 		</div>
 	);
