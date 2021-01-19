@@ -1,34 +1,22 @@
-import React, { Component } from 'react';
-import Title from './Title';
-import profile from '../../../resources/profile.jpg';
+import React from 'react';
 
-class Portfolio extends Component {
-	state = { displayBio: false };
+import About from './About';
+import Connect from './Connect';
+import Skills from './Skills';
+import Work from './Work';
+import QED from './QED';
 
-	toggleDisplayBio = () => {
-		this.setState({ displayBio: !this.state.displayBio });
-	}
+const Portfolio = () => {
+	return (
+		<div>
+			<About />
+			<Connect />
+			<Skills />
+			<Work />
+			<QED />
+		</div>
 
-	render() {
-		return (
-			<div className='portfolio'>
-				<img src={profile} alt='profile' className="profile" />
-				<h1>Bud Linville</h1>
-				<Title />
-				{ this.state.displayBio ? (
-					<div>
-						<p>Current Softweare Engineer II at Walmart Labs</p>
-						<p>Former Software Engineer Intern at Garmin</p>
-						<button onClick={this.toggleDisplayBio}>Show less</button>
-					</div>
-				) : (
-					<div>
-						<button onClick={this.toggleDisplayBio}>Read more</button>
-					</div>
-				)}
-			</div>
-		)
-	}
-}
+	);
+};
 
 export default Portfolio;
