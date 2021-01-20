@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 
-import store from './store';
-import { setHeaderExpanded } from './store/actions/scene';
-import Routes from './Routes';
+import store from '../store';
+import { setHeaderExpanded } from '../store/actions/scene';
+import Routes from '../Routes';
 
 export const history = createBrowserHistory();
 
