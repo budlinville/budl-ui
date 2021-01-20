@@ -1,4 +1,4 @@
-import { history } from '../App';
+import { history } from './App';
 
 // comp must be same component returned for to's path
 const Redirect = ({to, comp=null}) => {
