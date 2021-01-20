@@ -45,6 +45,24 @@ const useStyles = makeStyles({
 		width: '120px',
 		height: '120px',
 		borderRadius: '60px'
+	},
+	titleFadeOut: {
+		opacity: 0,
+		animationName: 'fadeOut',
+		animationDuration: '2s'
+	},
+	titleFadeIn: {
+		opacity: '100',
+		animationName: 'fadeIn',
+		animationDuration: '2s'
+	},
+	'@keyframes fadeOut': {
+		from: { opacity: 100 },
+		to: { opacity: 0 }
+	},
+	'@keyframes fadeIn': {
+		from: { opacity: 0 },
+		to: { opacity: 100 }
 	}
 });
 
