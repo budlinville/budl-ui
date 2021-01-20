@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
 import sphereData from '../../data/spheres';
 import Scene from './Scene';
@@ -11,6 +12,7 @@ const style = color => ({
 });
 
 const SceneWrapper = ({ history }) => {
+	const classes = useStyles();
 	const dispatch = useDispatch();
 	const hovering = useSelector(state => state.scene.hovering);
 	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
@@ -32,10 +34,16 @@ const SceneWrapper = ({ history }) => {
 	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
-		<div className='scene-wrapper' style={style(backgroundColor)}>
+		<div className={classes.sceneWrapper} style={style(backgroundColor)}>
 			<Scene navCallback={navigate} />
 		</div>
 	);
 };
+
+const useStyles = makeStyles({
+	sceneWrapper: {
+		height: '100%'
+	}
+});
 
 export default withRouter(SceneWrapper);
