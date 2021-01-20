@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, ReactReduxContext } from 'react-redux';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { TrackballControls, Stars } from '@react-three/drei';
 import { Vector3 } from 'three';
 import { useContextBridge } from '@react-three/drei';
 
@@ -27,11 +27,12 @@ const Scene = ({ navCallback }) => {
 		>
 			<ContextBridge>
 				{/***** CONTROLS *****/}
-				<OrbitControls
+				<TrackballControls
 					target={new Vector3(...center)}
-					enablePan={false}
+					noPan={true}
 					minDistance={5}
-					maxDistance={30}/>
+					maxDistance={35}
+					rotateSpeed={6}/>
 
 				{/***** LIGHTING *****/}
 				<Lighting />
