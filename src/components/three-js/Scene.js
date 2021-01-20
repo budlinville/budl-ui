@@ -60,7 +60,12 @@ const Scene = ({ navCallback }) => {
 						/>
 					);
 				})}
-				<Stars/>
+				<Stars
+					fade
+					count={1500}
+					radius={150}
+					factor={6}
+				/>
 			</ContextBridge>
 		</Canvas>
 	);

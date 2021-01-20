@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 
-import './styles/App.css';
 import store from './store';
 import { setHeaderExpanded } from './store/actions/scene';
 import Routes from './Routes';
@@ -18,7 +17,7 @@ history.listen(location => {
   } else if (!atHome && headerExpanded) {
     store.dispatch(setHeaderExpanded(false));
   }
-})
+});
 
 const App = () => {
   useEffect(() => {
