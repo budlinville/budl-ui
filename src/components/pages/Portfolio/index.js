@@ -21,6 +21,7 @@ const Portfolio = () => {
 				<div>
 					<p>Current Softweare Engineer II at Walmart Labs</p>
 					<p>Former Software Engineer Intern at Garmin</p>
+					<p>Self-taught bike rider</p>
 					<button onClick={toggleDisplayBio}>Show less</button>
 				</div>
 			) : (
