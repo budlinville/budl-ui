@@ -1,3 +1,4 @@
+import { portfolio, store, messenger } from '../themes';
 /*********************************************************
 	Rotate around x-axis: { axis: [1, 0, 0] }
 	Rotate around y-axis: { axis: [0, 1, 0] }
@@ -7,29 +8,32 @@
 
 const spheres = [
 	{
+		name: 'Portfolio',
 		id: 0,
 		position: [0, 18, 0],	// starting position
 		axis: [1, 0, 0],	
 		args: [1, 25, 25],	// [size, detail, detail]
-		color: 'red',
-		nav: '/portfolio',
-		label: 'Portfolio',
+		color: portfolio.palette.primary.main,
+		color2: portfolio.palette.secondary.main,
+		nav: '/portfolio'
 	},{
+		name: 'Store',
 		id: 1,
 		position: [0, 10, 8],
 		axis: [0, 1, 0],
 		args: [1, 25, 25],
-		color: 'blue',
-		nav: '/store',
-		label: 'Store'
+		color: store.palette.primary.main,
+		color2: store.palette.secondary.main,
+		nav: '/store'
 	},{
+		name: 'Messenger',
 		id: 2,
 		position: [8, 10, 0],
 		axis: [0, 0, 1],
 		args: [1, 25, 25],
-		color: 'green',
-		nav: '/messenger',
-		label: 'Messenger'
+		color: messenger.palette.primary.main,
+		color2: messenger.palette.secondary.main,
+		nav: '/messenger'
 	},
 ];
 

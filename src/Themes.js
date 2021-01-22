@@ -8,21 +8,21 @@ export const dark = {
     type: 'dark'
   }
 }
-export const red = {
+export const portfolio = {
   palette: {
-    primary: 'OrangeRed',
-    secondary: 'MediumSpringGreen'
+    primary: { main: '#FF532B' },
+    secondary: { main: '#2EFF5C' }
   }
 }
-export const blue = {
+export const store = {
   palette: {
-    primary: 'MidnightBlue',
-    secondary: 'Coral'
+    primary: { main: '#0A6EE3' },
+    secondary: { main: '#FFB01C' }
   }
 }
-export const purple = {
+export const messenger = {
   palette: {
-    primary: 'DarkViolet',
-    secondary: 'Gold'
+    primary: { main: '#7C34E3' },
+    secondary: { main: '#EEFF2C' }
   }
 }

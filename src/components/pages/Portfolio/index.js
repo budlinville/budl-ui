@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
 
 import Title from './Title';
 import profile from '../../../resources/profile.jpg';
+import { setTheme } from '../../../store/actions/app';
+import { portfolio } from '../../../themes';
 
 const Portfolio = () => {
 	const toggleDisplayBio = () => {
@@ -11,6 +14,9 @@ const Portfolio = () => {
 
 	const [displayBio, setDisplayBio] = useState(false);
 	const classes = useStyles();
+
+	const dispatch = useDispatch();
+	useEffect(() => dispatch(setTheme(portfolio)), [dispatch]);
 
 	return (
 		<div className={classes.portfolio}>
