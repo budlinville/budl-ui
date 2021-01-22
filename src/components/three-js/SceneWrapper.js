@@ -7,19 +7,20 @@ import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 
-const style = color => ({
-	background: `linear-gradient(white, ${color}, white)`
-});
-
 const SceneWrapper = ({ history }) => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const hovering = useSelector(state => state.scene.hovering);
-	const backgroundColor = hovering.length ? sphereData[hovering[0].id].color : 'gray';
+	const primaryBgColor = hovering.length ? sphereData[hovering[0].id].color : '#172837';
+	const secondaryBgColor = hovering.length ? sphereData[hovering[0].id].color2 : '#B5AEAE';
 
 	const navigate = to => {
 		history.push(to);
 	};
+
+	const style = useCallback(() => ({
+		background: `linear-gradient(black -5%, ${primaryBgColor} 10%, ${secondaryBgColor} 90%, white 105%)`
+	}), [primaryBgColor, secondaryBgColor]);
 
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
@@ -34,7 +35,7 @@ const SceneWrapper = ({ history }) => {
 	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
-		<div className={classes.sceneWrapper} style={style(backgroundColor)}>
+		<div className={classes.sceneWrapper} style={style()}>
 			<Scene navCallback={navigate} />
 		</div>
 	);
