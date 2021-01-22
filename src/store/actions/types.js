@@ -1,6 +1,10 @@
+// SCENE
 export const SET_CAM_POS = 'SET_CAM_POS';
 export const SET_ORBIT_CENTER = 'SET_ORBIT_CENTER';
 export const SET_SCENE_DIMENSIONS = 'SET_SCENE_DIMENSIONS';
 export const ADD_HOVERED_OBJ = 'ADD_HOVERED_OBJ';
 export const REM_HOVERED_OBJ = 'REM_HOVERED_OBJ';
 export const SET_HEADER_EXPANDED = 'SET_HEADER_EXPANDED';
+
+// APP
+export const SET_THEME = 'SET_THEME';

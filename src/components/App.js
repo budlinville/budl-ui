@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import store from '../store';
 import { setHeaderExpanded } from '../store/actions/scene';
 import Routes from '../Routes';
+import Theme from './Theme';
 
 export const history = createBrowserHistory();
 
@@ -28,7 +29,9 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-      <Routes history={history}/>
+      <Theme>
+        <Routes history={history}/>
+      </Theme>
     </Provider>
   );
 }
