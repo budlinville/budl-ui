@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/styles';
 
 import sphereData from '../../data/spheres';
 import Scene from './Scene';
@@ -18,9 +19,17 @@ const SceneWrapper = ({ history }) => {
 		history.push(to);
 	};
 
+	const theme = useTheme();
+	console.log(theme);
+	console.log(theme.palette.secondary.dark);
+
 	const style = useCallback(() => ({
-		background: `linear-gradient(black -5%, ${primaryBgColor} 10%, ${secondaryBgColor} 90%, white 105%)`
-	}), [primaryBgColor, secondaryBgColor]);
+		background: `linear-gradient(
+			${theme.palette.secondary.light} -5%,
+			${theme.palette.primary.main} 50%,
+			${theme.palette.primary.dark} 105%
+		)`
+	}));
 
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
