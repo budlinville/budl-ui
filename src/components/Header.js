@@ -17,7 +17,7 @@ const Header = () => {
 	const sceneClassName = expanded
 		? classes.headerSceneContainerExpanded
 		: classes.headerSceneContainerContracted;
-		
+
 	return (
 		<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
 			<Scene/>
