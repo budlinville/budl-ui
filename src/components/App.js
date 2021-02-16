@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 
 import store from '../store';
-import { setHeaderExpanded } from '../store/actions/scene';
+import { setHeaderExpanded } from '../store/actions/app';
 import Routes from '../Routes';
 import Theme from './Theme';
 
@@ -11,7 +11,7 @@ export const history = createBrowserHistory();
 
 history.listen(location => {
   const { pathname } = location;
-  const { scene : { headerExpanded }} = store.getState();
+  const { app : { headerExpanded }} = store.getState();
   const atHome = pathname === '/' || pathname === '/home';
   if (atHome && !headerExpanded) {
     store.dispatch(setHeaderExpanded(true));

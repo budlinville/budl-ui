@@ -1,7 +1,10 @@
-import { SET_THEME } from '../actions/types';
+import { SET_THEME, SET_HEADER_EXPANDED } from '../actions/types';
 import { dark } from '../../themes';
 
-const initialState = { theme: dark };
+const initialState = {
+	theme: dark,
+	headerExpanded: true
+};
 
 const appReducer = (state=initialState, action) => {
 	switch (action.type) {
@@ -9,6 +12,11 @@ const appReducer = (state=initialState, action) => {
 			return {
 				...state,
 				theme: action.theme
+			}
+		case SET_HEADER_EXPANDED:
+			return {
+				...state,
+				headerExpanded: action.expanded
 			}
 		default:
 			return state;

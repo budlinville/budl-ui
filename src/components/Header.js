@@ -12,11 +12,12 @@ const Header = () => {
 		}
 	}
 	const classes = useStyles();
-	const expanded = useSelector(state => state.scene.headerExpanded);
+	const expanded = useSelector(state => state.app.headerExpanded);
 	const hovering = useSelector(state => state.scene.hovering);
 	const sceneClassName = expanded
 		? classes.headerSceneContainerExpanded
 		: classes.headerSceneContainerContracted;
+		
 	return (
 		<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
 			<Scene/>
