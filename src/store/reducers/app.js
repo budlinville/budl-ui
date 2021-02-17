@@ -1,8 +1,8 @@
 import { SET_THEME, SET_HEADER_EXPANDED } from '../actions/types';
-import { dark } from '../../themes';
+import { home } from '../../themes';
 
 const initialState = {
-	theme: dark,
+	theme: home,
 	headerExpanded: true
 };
 

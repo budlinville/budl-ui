@@ -26,3 +26,10 @@ export const messenger = {
     secondary: { main: '#EEFF2C' }
   }
 }
+
+export const home = {
+  palette: {
+    primary: { main: '#172837' },
+    secondary: { main: '#B5AEAE' }
+  }
+}

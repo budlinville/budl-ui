@@ -25,6 +25,8 @@ const App = () => {
     const { pathname } = history.location;
     if (pathname === '/home' || pathname === '/') {
       store.dispatch(setHeaderExpanded(true));
+    } else {
+      store.dispatch(setHeaderExpanded(false));
     }
   }, []);
   return (
