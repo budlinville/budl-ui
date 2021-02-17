@@ -25,18 +25,20 @@ const Header = () => {
 		? classes.scene
 		: classes.sceneAsHeader;
 
+	// Spacer to put webpage content under { position: fixed } header
+	const spacer = expanded
+		? classes.spacer0vh
+		: ( hovered
+			? classes.spacer30vh
+			: classes.spacer15vh
+		);
+
 	return (
 		<>
 			<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
 				<Scene onHoverCallback={() => setHovered(true)} onHoverReleaseCallback={() => setHovered(false)} />
 			</div>
-			{ expanded
-				? <div className={classes.spacer0vh}/>
-				: ( hovered
-					? <div className={classes.spacer30vh}/>
-					: <div className={classes.spacer15vh}/>
-				)
-			}
+			<div className={spacer}/>
 		</>
 	);
 };
@@ -52,8 +54,6 @@ const useStyles = makeStyles(theme => ({
 		overflow: 'hidden',
 		height: '15vh',
 		width: '100vw',
-		borderRadius: '0px 0px 8px 8px',
-		boxShadow: `0px 3px 10px ${theme.palette.primary.dark};`,
 		transition: 'height 0.3s ease-out',
 		'&:hover': {
 			height: '30vh'
