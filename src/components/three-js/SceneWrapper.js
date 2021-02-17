@@ -8,7 +8,7 @@ import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 
-const SceneWrapper = ({ history }) => {
+const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const theme = useTheme();
@@ -43,7 +43,11 @@ const SceneWrapper = ({ history }) => {
 	useEffect(() => setSceneState(), [setSceneState]);
 
 	return (
-		<div className={classes.sceneWrapper} style={style()}>
+		<div
+			className={classes.sceneWrapper}
+			style={style()}
+			onMouseEnter={() => onHoverCallback()}
+			onMouseLeave={() => onHoverReleaseCallback()}>
 			<Scene navCallback={navigate} />
 		</div>
 	);

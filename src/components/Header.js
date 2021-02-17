@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -18,6 +18,9 @@ const Header = () => {
 	const classes = useStyles();
 	const expanded = useSelector(state => state.app.headerExpanded);
 	const hovering = useSelector(state => state.scene.hovering);
+
+	const [hovered, setHovered] = useState(false);
+
 	const sceneClassName = expanded
 		? classes.scene
 		: classes.sceneAsHeader;
@@ -25,9 +28,12 @@ const Header = () => {
 	return (
 		<>
 			<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
-				<Scene/>
+				<Scene onHoverCallback={() => setHovered(true)} onHoverReleaseCallback={() => setHovered(false)} />
 			</div>
-			<div className={classes.spacer}/>
+			{ hovered
+				? <div className={classes.spacer30vh}/>
+				: <div className={classes.spacer15vh}/>
+			}
 		</>
 	);
 };
@@ -50,13 +56,13 @@ const useStyles = makeStyles({
 			height: '30vh'
 		}
 	},
-	spacer: {
+	spacer15vh: {
 		width: '100vw',
-		marginTop: '-8px',
 		height: '15vh',
-		'&:hover': {
-			height: '30vh'
-		}
+	},
+	spacer30vh: {
+		width: '100vw',
+		height: '30vh',
 	}
 });
 
