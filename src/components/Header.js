@@ -39,7 +39,7 @@ const Header = () => {
 };
 // TODO : working here on proper header positioning
 // rems vs ems
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	scene: {
 		height: '100vh',
 		transition: 'height 0.6s ease-out'
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
 		height: '15vh',
 		width: '100vw',
 		borderRadius: '0px 0px 8px 8px',
-		boxShadow: '0px 3px 10px white;',
+		boxShadow: `0px 3px 10px ${theme.palette.primary.dark};`,
 		transition: 'height 0.3s ease-out',
 		'&:hover': {
 			height: '30vh'
@@ -59,13 +59,13 @@ const useStyles = makeStyles({
 	spacer15vh: {
 		width: '100vw',
 		height: '15vh',
-		transition: 'height 0.8s ease-out'
+		transition: 'height 0.3s ease-out'
 	},
 	spacer30vh: {
 		width: '100vw',
 		height: '30vh',
 		transition: 'height 0.3s ease-out'
 	}
-});
+}));
 
 export default Header;
