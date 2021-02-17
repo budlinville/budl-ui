@@ -4,6 +4,7 @@ import { Canvas } from 'react-three-fiber';
 import { TrackballControls, Stars } from '@react-three/drei';
 import { Vector3 } from 'three';
 import { useContextBridge } from '@react-three/drei';
+import { useTheme } from '@material-ui/styles';
 
 import sphereData from '../../data/spheres';
 import Lighting from './Lighting';
@@ -11,12 +12,19 @@ import OrbitingSphere from './shapes/OrbitingSphere';
 import SpinningBox from './shapes/SpinningBox';
 
 const Scene = ({ navCallback }) => {
+	const theme = useTheme();
 	const initCamPos = useSelector(state => state.scene.camera.position);
 	const center = useSelector(state => state.scene.center.position);
 	const hovering = useSelector(state => state.scene.hovering);
+	const headerExpanded = useSelector(state => state.app.headerExpanded);
 
 	// Needed to connect components inside canvas with redux's context
 	const ContextBridge = useContextBridge(ReactReduxContext);
+
+	const boxColor = hovering.length ? sphereData[hovering[0].id].color2 : theme.palette.secondary.main;
+	const starFactor = headerExpanded ? 6 : 4;
+	const starRadius = headerExpanded ? 150 : 300;
+	const starCount = headerExpanded ? 2000 : 3000;
 
 	return (
 		<Canvas
@@ -43,7 +51,7 @@ const Scene = ({ navCallback }) => {
 				<SpinningBox
 					position={center}
 					args={[3, 3, 3]}
-					color={ hovering.length ? sphereData[hovering[0].id].color : 'gray' }
+					color={ boxColor }
 				/>
 				{sphereData.map(sphere => {
 					return (
@@ -62,9 +70,9 @@ const Scene = ({ navCallback }) => {
 				})}
 				<Stars
 					fade
-					count={1500}
-					radius={150}
-					factor={6}
+					count={starCount}
+					radius={starRadius}
+					factor={starFactor}
 				/>
 			</ContextBridge>
 		</Canvas>
