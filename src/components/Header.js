@@ -30,9 +30,12 @@ const Header = () => {
 			<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
 				<Scene onHoverCallback={() => setHovered(true)} onHoverReleaseCallback={() => setHovered(false)} />
 			</div>
-			{ hovered
-				? <div className={classes.spacer30vh}/>
-				: <div className={classes.spacer15vh}/>
+			{ expanded
+				? <div className={classes.spacer0vh}/>
+				: ( hovered
+					? <div className={classes.spacer30vh}/>
+					: <div className={classes.spacer15vh}/>
+				)
 			}
 		</>
 	);
@@ -55,6 +58,9 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			height: '30vh'
 		}
+	},
+	spacer0vh: {
+		height: '0vh',
 	},
 	spacer15vh: {
 		width: '100vw',
