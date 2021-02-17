@@ -15,13 +15,13 @@ const Portfolio = () => {
 	useEffect(() => dispatch(setTheme(portfolio)), [dispatch]);
 
 	return (
-		<div>
+		<>
 			<About />
 			<Connect />
 			<Skills />
 			<Work />
 			<QED />
-		</div>
+		</>
 	);
 };
 

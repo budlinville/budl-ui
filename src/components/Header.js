@@ -19,27 +19,41 @@ const Header = () => {
 	const expanded = useSelector(state => state.app.headerExpanded);
 	const hovering = useSelector(state => state.scene.hovering);
 	const sceneClassName = expanded
-		? classes.headerSceneContainerExpanded
-		: classes.headerSceneContainerContracted;
+		? classes.scene
+		: classes.sceneAsHeader;
 
 	return (
-		<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
-			<Scene/>
-		</div>
+		<>
+			<div onTouchStart={onClickHandler} onDoubleClick={onClickHandler} className={sceneClassName}>
+				<Scene/>
+			</div>
+			<div className={classes.spacer}/>
+		</>
 	);
 };
-
+// TODO : working here on proper header positioning
+// rems vs ems
 const useStyles = makeStyles({
-	headerSceneContainerExpanded: {
+	scene: {
 		height: '100vh',
 		transition: 'height 0.6s ease-out'
 	},
-	headerSceneContainerContracted: {
-		height: '15vh',
-		borderRadius: '0px 0px 8px 8px',
+	sceneAsHeader: {
+		position: 'fixed',
 		overflow: 'hidden',
-		boxShadow: '0px 3px 10px #ccc',
+		height: '15vh',
+		width: '100vw',
+		borderRadius: '0px 0px 8px 8px',
+		boxShadow: '0px 3px 10px white;',
 		transition: 'height 0.3s ease-out',
+		'&:hover': {
+			height: '30vh'
+		}
+	},
+	spacer: {
+		width: '100vw',
+		marginTop: '-8px',
+		height: '15vh',
 		'&:hover': {
 			height: '30vh'
 		}
