@@ -59,10 +59,12 @@ const useStyles = makeStyles({
 	spacer15vh: {
 		width: '100vw',
 		height: '15vh',
+		transition: 'height 0.8s ease-out'
 	},
 	spacer30vh: {
 		width: '100vw',
 		height: '30vh',
+		transition: 'height 0.3s ease-out'
 	}
 });
 
