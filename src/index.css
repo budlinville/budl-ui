@@ -5,6 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Hide Mozilla scrollbars */
+  overflow: -moz-scrollbars-none;
+  /* Hide Internet Explorer scrollbars */
+  -ms-overflow-style: none;
+}
+
+/* Hide Webkit-based scrollbars : e.g. chrome, safari, etc. */
+body::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
 }
 
 code {
