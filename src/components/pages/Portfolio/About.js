@@ -13,14 +13,14 @@ const About = () => {
 		<div className={classes.rootContainer}>
 			<img src={profile} alt='profile' className={classes.profile} />
 			<div className={classes.aboutContainer}>
-				<Typography className={classes.aboutText} variant="h4">{ about.description }</Typography>
+				<Typography className={classes.aboutText} variant="h3">{ about.description }</Typography>
 				<div className={classes.buttonContainer}>
 					<Button
 						variant="contained"
 						color="primary"
 						className={classes.button}
 						startIcon={<ReceiptIcon />}>
-						Resume
+						{ about.resume }
 					</Button>
 				</div>
 			</div>
@@ -43,11 +43,14 @@ const useStyles = makeStyles(theme => ({
 	},
 	profile: {
 		flex: 1,
-		width: '45%',
-  	height: '45%',
 		borderRadius: '100%',
-		margin: '30px',
-		border: `2px solid ${theme.palette.secondary.main}`,
+		margin: '4rem',
+		width: '45%',
+		height: '45%',
+		border: `5px solid ${theme.palette.primary.dark}`,
+		boxShadow: `1px 1px 2px ${theme.palette.primary.dark},
+			0 0 25px ${theme.palette.primary.main},
+			0 0 5px ${theme.palette.primary.light}`,
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
 			width: '25em',
