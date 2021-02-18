@@ -54,6 +54,9 @@ const useStyles = makeStyles(theme => ({
 		overflow: 'hidden',
 		height: '15vh',
 		width: '100vw',
+		borderRadius: '0px 0px 20px 20px',
+
+		boxShadow: `0px 3px 10px ${theme.palette.primary.dark};`,
 		transition: 'height 0.3s ease-out',
 		'&:hover': {
 			height: '30vh'
