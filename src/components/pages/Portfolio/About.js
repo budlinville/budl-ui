@@ -13,7 +13,7 @@ const About = () => {
 		<div className={classes.rootContainer}>
 			<img src={profile} alt='profile' className={classes.profile} />
 			<div className={classes.aboutContainer}>
-				<Typography className={classes.aboutText} variant="h3">{ about.description }</Typography>
+				<Typography className={classes.aboutText}>{ about.description }</Typography>
 				<div className={classes.buttonContainer}>
 					<Button
 						variant="contained"
@@ -35,15 +35,15 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		width: '100vw',
 		flexDirection: 'row',
+		alignItems: 'center',
 		backgroundColor: theme.palette.secondary.light,
 		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column',
-			alignItems: 'center'
+			flexDirection: 'column'
     }
 	},
 	profile: {
 		flex: 1,
-		borderRadius: '100%',
+		borderRadius: '50%',
 		margin: '4rem',
 		width: '45%',
 		height: '45%',
@@ -53,23 +53,29 @@ const useStyles = makeStyles(theme => ({
 			0 0 5px ${theme.palette.primary.light}`,
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
-			width: '25em',
-  		height: '25em'
+			width: '20em',
+  		height: '20em',
+			marginBottom: 0
     }
 	},
 	aboutContainer: {
 		flex: 2,
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: "space-between",
-		margin: '4rem'
+		justifyContent: "space-between"
 	},
 	buttonContainer: {
-		alignSelf: 'flex-end'
+		alignSelf: 'flex-end',
+		margin: '1em'
 	},
 	aboutText: {
 		color: theme.palette.primary.dark,
-		textShadow: `1px 1px 2px ${theme.palette.primary.light}`
+		fontSize: '3em',
+		textShadow: `1px 1px 2px ${theme.palette.primary.light}`,
+		margin: '2em',
+		[theme.breakpoints.down('md')]: {
+			fontSize: '2em'
+    }
 	},
 	resume: {
 		height: '40px',
