@@ -9,9 +9,11 @@ import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
 
-const SphereMesh = ({isHovering, color, color2}) => {
+const SphereMesh = ({isHeaderExpanded, isHovering, color, color2}) => {
 	const meshColor = isHovering ? color2: color;
-	return <meshPhongMaterial attach='material' color={meshColor} />;
+	return isHeaderExpanded
+		? <meshPhongMaterial attach='material' color={meshColor} />
+		: <meshToonMaterial attach='material' color={meshColor} />;
 }
 
 const isNearestHoveredObj = (objs, id) => {
@@ -56,6 +58,7 @@ const OrbitingSphere = ({
 
 	const center = new Vector3(...useSelector(state => state.scene.center.position));
 	const cameraPos = useThree().camera.getWorldPosition(new Vector3());
+	const headerExpanded = useSelector(state => state.app.headerExpanded);
 	const hovering = useSelector(state => state.scene.hovering);
 	const isHovering = isNearestHoveredObj(hovering, id);
 	const sphere = useRef();
@@ -64,6 +67,11 @@ const OrbitingSphere = ({
 	const [pressed, setPressed] = useState(false);
 
 	useFrame(() => orbit(sphere, center, axis, speed));
+
+	const outlineStrength = !headerExpanded
+		? 1.15
+		: (isHovering ? 1.1 : 1.02);
+	const outlineColor = headerExpanded ? color : color2;
 
 	return(
 		<group>
@@ -77,7 +85,7 @@ const OrbitingSphere = ({
 				onPointerUp={onPressRelease}
 				castShadow
 			>
-				<SphereMesh isPressed={pressed} isHovering={isHovering} color={color} color2={color2} />
+				<SphereMesh isHeaderExpanded={headerExpanded} isHovering={isHovering} color={color} color2={color2} />
 			</Sphere>
 			<SphereOutline
 				position={position}
@@ -85,8 +93,8 @@ const OrbitingSphere = ({
 				axis={axis}
 				args={args}
 				speed={speed}
-				color={color}
-				scale={isHovering ? 1.1 : 1.02}
+				color={outlineColor}
+				scale={outlineStrength}
 				opacity={1}
 			/>
 			<SphereOutline

@@ -33,7 +33,7 @@ const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 	// SET CONFIGURATIONS FOR SCENE
 	const setSceneState = useCallback(() => {
 		const ORBIT_CENTER = [0, 10, 0];
-		const CAM_POS = [0, 29, -29];
+		const CAM_POS = [0, 28, -28];
 		const DIMENSIONS = [50, 50, 50];
 		dispatch(setOrbitCenter(ORBIT_CENTER));
 		dispatch(setCamPos(CAM_POS));
