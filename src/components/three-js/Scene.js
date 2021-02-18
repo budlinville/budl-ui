@@ -62,6 +62,7 @@ const Scene = ({ navCallback }) => {
 							axis={new Vector3(...sphere.axis)}
 							args={sphere.args}
 							color={sphere.color}
+							color2={sphere.color2}
 							delta = {0.01}
 							nav={sphere.nav}
 							navCallback={navCallback}
