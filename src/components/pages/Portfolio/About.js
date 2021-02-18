@@ -11,7 +11,9 @@ const About = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.rootContainer}>
-			<img src={profile} alt='profile' className={classes.profile} />
+			<div className={classes.profileContainer}>
+				<img src={profile} alt='profile' className={classes.profile} />
+			</div>
 			<div className={classes.aboutContainer}>
 				<Typography className={classes.aboutText}>{ about.description }</Typography>
 				<div className={classes.buttonContainer}>
@@ -28,8 +30,6 @@ const About = () => {
 	);
 };
 
-export default About;
-
 const useStyles = makeStyles(theme => ({
 	rootContainer: {
 		display: 'flex',
@@ -41,28 +41,38 @@ const useStyles = makeStyles(theme => ({
 			flexDirection: 'column'
     }
 	},
-	profile: {
+	profileContainer: {
 		flex: 1,
+		display: 'flex',
+		width: '100%',
+		height: '100%',
+		justifyContent: 'center',
+		alignItems: 'center',
+		margin: '2rem'
+	},
+	profile: {
 		borderRadius: '50%',
-		margin: '4rem',
-		width: '45%',
-		height: '45%',
+		width: '30em',
+		height: '30em',
 		border: `5px solid ${theme.palette.primary.dark}`,
 		boxShadow: `1px 1px 2px ${theme.palette.primary.dark},
 			0 0 25px ${theme.palette.primary.main},
 			0 0 5px ${theme.palette.primary.light}`,
 		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column',
 			width: '20em',
   		height: '20em',
 			marginBottom: 0
     }
 	},
 	aboutContainer: {
-		flex: 2,
+		flex: 1,
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		margin: '2rem',
+		[theme.breakpoints.down('sm')]: {
+			marginTop: 0
+    }
 	},
 	buttonContainer: {
 		alignSelf: 'flex-end',
@@ -72,7 +82,6 @@ const useStyles = makeStyles(theme => ({
 		color: theme.palette.primary.dark,
 		fontSize: '3em',
 		textShadow: `1px 1px 2px ${theme.palette.primary.light}`,
-		margin: '2em',
 		[theme.breakpoints.down('md')]: {
 			fontSize: '2em'
     }
@@ -82,3 +91,5 @@ const useStyles = makeStyles(theme => ({
 		width: '40px'
 	}
 }));
+
+export default About;
