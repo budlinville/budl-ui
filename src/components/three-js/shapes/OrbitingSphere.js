@@ -9,8 +9,8 @@ import { orbit } from '../animations';
 import { addHoveredObj, removeHoveredObj } from '../../../store/actions/scene';
 import SphereOutline from './SphereOutline';
 
-const SphereMesh = ({isHovering, color}) => {
-	const meshColor = isHovering ? 'white' : color;
+const SphereMesh = ({isHovering, color, color2}) => {
+	const meshColor = isHovering ? color2: color;
 	return <meshPhongMaterial attach='material' color={meshColor} />;
 }
 
@@ -25,6 +25,7 @@ const OrbitingSphere = ({
 	position,
 	args,
 	color,
+	color2,
 	axis,
 	delta = 0.01,
 	nav,
@@ -76,7 +77,7 @@ const OrbitingSphere = ({
 				onPointerUp={onPressRelease}
 				castShadow
 			>
-				<SphereMesh isPressed={pressed} isHovering={isHovering} color={color} />
+				<SphereMesh isPressed={pressed} isHovering={isHovering} color={color} color2={color2} />
 			</Sphere>
 			<SphereOutline
 				position={position}
@@ -94,7 +95,7 @@ const OrbitingSphere = ({
 				axis={axis}
 				args={args}
 				speed={speed}
-				color={pressed ? color : 'white'}
+				color={pressed ? color : color2}
 				visible={isHovering}
 				scale={2}
 				opacity={0.4}
