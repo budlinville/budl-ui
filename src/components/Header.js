@@ -54,9 +54,8 @@ const useStyles = makeStyles(theme => ({
 		overflow: 'hidden',
 		height: '15vh',
 		width: '100vw',
-		borderRadius: '0px 0px 20px 20px',
-
-		boxShadow: `0px 3px 10px ${theme.palette.primary.dark};`,
+		borderBottom: `1px solid ${theme.palette.secondary.dark}`,
+		boxShadow: `0px 2px 4px ${theme.palette.primary.light};`,
 		transition: 'height 0.3s ease-out',
 		'&:hover': {
 			height: '30vh'
@@ -64,15 +63,18 @@ const useStyles = makeStyles(theme => ({
 	},
 	spacer0vh: {
 		height: '0vh',
+		backgroundColor: theme.palette.secondary.light
 	},
 	spacer15vh: {
 		width: '100vw',
 		height: '15vh',
+		backgroundColor: theme.palette.secondary.light,
 		transition: 'height 0.3s ease-out'
 	},
 	spacer30vh: {
 		width: '100vw',
 		height: '30vh',
+		backgroundColor: theme.palette.secondary.light,
 		transition: 'height 0.3s ease-out'
 	}
 }));
