@@ -57,6 +57,7 @@ const useStyles = makeStyles(theme => ({
 		borderBottom: `1px solid ${theme.palette.secondary.dark}`,
 		boxShadow: `0px 2px 4px ${theme.palette.primary.light};`,
 		transition: 'height 0.3s ease-out',
+		zIndex: 5,
 		'&:hover': {
 			height: '30vh'
 		}
