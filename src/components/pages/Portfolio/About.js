@@ -1,35 +1,28 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, IconButton } from '@material-ui/core';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import { useTheme } from '@material-ui/styles';
+import { Typography, Button } from '@material-ui/core';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+
+import { about } from '../../../constants/pages/portfolio';
 
 import profile from '../../../resources/profile.jpg';
 
 const About = () => {
 	const classes = useStyles();
-	const theme = useTheme();
 	return (
 		<div className={classes.rootContainer}>
 			<img src={profile} alt='profile' className={classes.profile} />
 			<div className={classes.aboutContainer}>
-				<div className={classes.headerContainer}>
-					<Typography variant="h1">About</Typography>
-					<IconButton aria-label="Download Resume">
-						<GetAppIcon className={classes.resume}/>
-					</IconButton>
+				<Typography className={classes.aboutText} variant="h4">{ about.description }</Typography>
+				<div className={classes.buttonContainer}>
+					<Button
+						variant="contained"
+						color="primary"
+						className={classes.button}
+						startIcon={<ReceiptIcon />}>
+						Resume
+					</Button>
 				</div>
-				<Typography variant="h6">
-					about about about about about about about about about
-					about about about about about about about about about
-					about about about about about about about about about	
-					about about about about about about about about about
-					about about about about about about about about about
-					about about about about about about about about about
-					about about about about about about about about about
-					about about about about about about about about about
-					about about about about about about about about about
-				</Typography>
 			</div>
 		</div>
 	);
@@ -42,26 +35,38 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		width: '100vw',
 		flexDirection: 'row',
-		backgroundColor: theme.palette.secondary.light
+		backgroundColor: theme.palette.secondary.light,
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+			alignItems: 'center'
+    }
 	},
 	profile: {
 		flex: 1,
-		width: 'auto',
-  	maxWidth: '100%',
-  	height: 'auto',
+		width: '45%',
+  	height: '45%',
 		borderRadius: '100%',
-		margin: '30px'
+		margin: '30px',
+		border: `2px solid ${theme.palette.secondary.main}`,
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+			width: '25em',
+  		height: '25em'
+    }
 	},
 	aboutContainer: {
 		flex: 2,
 		display: 'flex',
-		flexDirection: 'column'
+		flexDirection: 'column',
+		justifyContent: "space-between",
+		margin: '4rem'
 	},
-	headerContainer: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center'
+	buttonContainer: {
+		alignSelf: 'flex-end'
+	},
+	aboutText: {
+		color: theme.palette.primary.dark,
+		textShadow: `1px 1px 2px ${theme.palette.primary.light}`
 	},
 	resume: {
 		height: '40px',
