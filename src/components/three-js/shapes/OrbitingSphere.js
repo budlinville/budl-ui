@@ -49,7 +49,7 @@ const OrbitingSphere = ({
 
 	const onPress = () => {
 		setPressed(true);
-	}
+	};
 
 	const onPressRelease = () => {
 		setPressed(false);
@@ -106,7 +106,7 @@ const OrbitingSphere = ({
 				color={pressed ? color : color2}
 				visible={isHovering}
 				scale={2}
-				opacity={0.4}
+				opacity={0.7}
 			/>
 		</group>
 	);
