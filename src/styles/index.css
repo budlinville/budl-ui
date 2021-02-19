@@ -9,6 +9,7 @@ body {
   overflow: -moz-scrollbars-none;
   /* Hide Internet Explorer scrollbars */
   -ms-overflow-style: none;
+  background-color: black;
 }
 
 /* Hide Webkit-based scrollbars : e.g. chrome, safari, etc. */
