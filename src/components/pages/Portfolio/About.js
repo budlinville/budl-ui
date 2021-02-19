@@ -6,6 +6,7 @@ import ReceiptIcon from '@material-ui/icons/Receipt';
 import { about } from '../../../constants/pages/portfolio';
 
 import profile from '../../../resources/profile3.jpg';
+import pdf from '../../../resources/resume.pdf';
 
 const About = () => {
 	const classes = useStyles();
@@ -17,13 +18,15 @@ const About = () => {
 			<div className={classes.aboutContainer}>
 				<Typography className={classes.aboutText}>{ about.description }</Typography>
 				<div className={classes.buttonContainer}>
-					<Button
-						variant="contained"
-						color="primary"
-						className={classes.button}
-						startIcon={<ReceiptIcon />}>
-						{ about.resume }
-					</Button>
+					<a href={pdf} style={{ textDecoration: 'none' }}>
+						<Button
+							variant="contained"
+							color="primary"
+							className={classes.button}
+							startIcon={<ReceiptIcon />}>
+								{ about.resume }
+						</Button>
+					</a>
 				</div>
 			</div>
 		</div>
