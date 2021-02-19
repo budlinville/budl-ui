@@ -23,5 +23,4 @@ export const skillsColumnDefs = [
 		minWidth: 250,
 		resizable: true
 	}
-
 ];

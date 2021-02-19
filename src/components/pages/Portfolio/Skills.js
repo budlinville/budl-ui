@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     }
 	},
 	title: {
-		marginBottom: '1rem',
+		marginBottom: '2rem',
 		color: 'white',
 		fontSize: 40,
 		textShadow: `2px 2px 5px ${theme.palette.primary.dark}`,

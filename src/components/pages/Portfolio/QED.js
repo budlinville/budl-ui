@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 		height: '1.5rem',
-		backgroundColor: theme.palette.primary.dark
+		backgroundColor: theme.palette.secondary.light,
+		borderTop: `2px solid ${theme.palette.secondary.main}`
 	},
 	qedText: {
 		height: '1rem',
