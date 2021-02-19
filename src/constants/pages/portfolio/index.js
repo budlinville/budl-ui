@@ -24,3 +24,11 @@ export const skillsColumnDefs = [
 		resizable: true
 	}
 ];
+
+export const connect = {
+	links: {
+		github: 'https://github.com/budlinville',
+		linkedin: 'https://www.linkedin.com/in/bud-linville/',
+		email: 'mailto: budlinville@gmail.com'
+	}
+}
