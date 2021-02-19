@@ -17,9 +17,9 @@ const Portfolio = () => {
 	return (
 		<>
 			<About />
-			<Connect />
-			<Skills />
 			<Work />
+			<Skills />
+			<Connect />
 			<QED />
 		</>
 	);

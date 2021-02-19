@@ -46,7 +46,8 @@ const useStyles = makeStyles(theme => ({
 		paddingBottom: '3rem'
 	},
 	workContainer: {
-		width: '100%'
+		width: '100%',
+		maxWidth: '50rem'
 	},
 	heading: {
 		color: 'white',
