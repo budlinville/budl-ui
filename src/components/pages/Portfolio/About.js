@@ -18,7 +18,7 @@ const About = () => {
 			<div className={classes.aboutContainer}>
 				<Typography className={classes.aboutText}>{ about.description }</Typography>
 				<div className={classes.buttonContainer}>
-					<a href={pdf} style={{ textDecoration: 'none' }}>
+					<a href={pdf} style={{ textDecoration: 'none' }} download>
 						<Button
 							variant="contained"
 							color="primary"
@@ -36,10 +36,11 @@ const About = () => {
 const useStyles = makeStyles(theme => ({
 	rootContainer: {
 		display: 'flex',
-		width: '100vw',
 		flexDirection: 'row',
 		alignItems: 'center',
-		backgroundColor: theme.palette.secondary.light,
+		backgroundColor: theme.palette.secondary.main,
+		padding: '4rem',
+		paddingBottom: '2rem',
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column'
     }
@@ -49,18 +50,19 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		width: '100%',
 		height: '100%',
-		justifyContent: 'center',
+		justifyContent: 'flex-end',
 		alignItems: 'center',
-		margin: '2rem'
+		[theme.breakpoints.down('sm')]: {
+			justifyContent: 'center',
+			marginBottom: '2em'
+    }
 	},
 	profile: {
 		borderRadius: '50%',
-		width: '30em',
-		height: '30em',
-		border: `5px solid ${theme.palette.primary.dark}`,
-		boxShadow: `1px 1px 2px ${theme.palette.primary.dark},
-			0 0 25px ${theme.palette.primary.main},
-			0 0 5px ${theme.palette.primary.light}`,
+		width: '25em',
+		height: '25em',
+		border: `1px solid ${theme.palette.primary.main}`,
+		boxShadow: `1px 1px 2px ${theme.palette.primary.dark}`,
 		[theme.breakpoints.down('sm')]: {
 			width: '20em',
   		height: '20em',
@@ -68,10 +70,9 @@ const useStyles = makeStyles(theme => ({
     }
 	},
 	aboutContainer: {
-		flex: 1,
+		flex: 2,
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: "space-between",
 		margin: '2rem',
 		[theme.breakpoints.down('sm')]: {
 			marginTop: 0
@@ -82,9 +83,9 @@ const useStyles = makeStyles(theme => ({
 		margin: '1em'
 	},
 	aboutText: {
-		color: theme.palette.primary.dark,
+		color: 'white',
 		fontSize: '3em',
-		textShadow: `1px 1px 2px ${theme.palette.primary.light}`,
+		textShadow: `1px 1px 1px ${theme.palette.primary.main}`,
 		[theme.breakpoints.down('md')]: {
 			fontSize: '2em'
     }

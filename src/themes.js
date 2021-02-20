@@ -10,8 +10,8 @@ export const dark = {
 }
 export const portfolio = {
   palette: {
-    primary: { main: '#121443' },
-    secondary: { main: '#f0681c' }
+    primary: { main: '#274A7E' },
+    secondary: { main: '#E66E46' }
   }
 }
 export const store = {
