@@ -2,22 +2,36 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 
 import work from '../../../data/work';
 
-const WorkAccordion = ({ position, list, index }) => {
+const ListItem = ({ text }) => {
+	const classes = useStyles();
+	return (
+		<div style={{ display: 'flex' }}>
+			<div className={classes.listItemIcon}>
+				<RadioButtonCheckedIcon style={{ height: '1rem', width: '1.5rem' }}/>
+			</div>
+			<div className={classes.listItem}>
+				<Typography className={classes.accordionDescription}> { text } </Typography>
+			</div>
+		</div>
+	);
+}
+
+const WorkAccordion = ({ company, position, list, index }) => {
 	const classes = useStyles();
 	const className = index % 2 === 1 ? classes.oddAccordion : classes.evenAccordion;
 	const detailsClassName = index % 2 === 1 ? classes.oddAccordionDetails : classes.evenAccordionDetails;
 	return(
 		<Accordion className={className}>
 			<AccordionSummary expandIcon={ <ExpandMoreIcon /> } aria-controls="panel1a-content">
-				<Typography className={classes.title}> { position } </Typography>
+				<Typography className={classes.accordionTitle}> { company } </Typography>
 			</AccordionSummary>
-			<AccordionDetails className={detailsClassName}>
-				<Typography className={classes.description}>
-					<ul> { list.map( item => ( <li> { item.desc } </li> ))}</ul>
-				</Typography>
+			<AccordionDetails className={`${classes.accordionDetail} ${detailsClassName}`}>
+				<Typography className={classes.accordionLabel}> { position } </Typography>
+				{ list.map( (item, i) => <ListItem key={i} text={item.desc} /> )}
 			</AccordionDetails>
 		</Accordion>
 	);
@@ -26,7 +40,7 @@ const WorkAccordion = ({ position, list, index }) => {
 const Work = () => {
 	const classes = useStyles();
 	const workAccordions = work.map((w, i) => (
-		<WorkAccordion position={w.position} list={w.list} index={i} key={i} />
+		<WorkAccordion company={w.company} position={w.position} list={w.list} index={i} key={i} />
 	));
 	return (
 		<div className={classes.rootContainer}>
@@ -57,12 +71,18 @@ const useStyles = makeStyles(theme => ({
 		fontSize: 40,
 		marginBottom: '1rem'
 	},
-	title: {
-		fontSize: 20,
-		textShadow: `0 0 25px ${theme.palette.secondary.light}`,
+	accordionTitle: {
+		fontSize: 20
 	},
-	description: {
-		color: 'white'
+	accordionLabel: {
+		color: 'white',
+		fontSize: 25,
+		alignSelf: 'center'
+	},
+	accordionDescription: {
+		color: 'white',
+		display: 'flex',
+		flexDirection: 'column'
 	},
 	oddAccordion: {
 		backgroundColor: theme.palette.primary.main,
@@ -72,13 +92,28 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: theme.palette.secondary.main,
 		color: 'white'
 	},
+	accordionDetail: {
+		color: 'black',
+		display: 'flex',
+		flexDirection: 'column'
+	},
 	oddAccordionDetails: {
-		backgroundColor: theme.palette.primary.light,
-		color: 'black'
+		backgroundColor: theme.palette.primary.light
 	},
 	evenAccordionDetails: {
-		backgroundColor: theme.palette.secondary.light,
-		color: 'black'
+		backgroundColor: theme.palette.secondary.light
+	},
+	listItem: {
+		flex: 20,
+		margin: '0.5rem',
+		padding: '0.5rem',
+		border: '0.1rem solid white',
+		borderRadius: '0.75rem'
+	},
+	listItemIcon: {
+		flex: 1,
+		color: 'white',
+		alignSelf: 'center'
 	}
 }));
 
