@@ -42,7 +42,9 @@ const useStyles = makeStyles(theme => ({
 		padding: '4rem',
 		paddingBottom: '2rem',
 		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column'
+			flexDirection: 'column',
+			padding: '1rem',
+			paddingTop: '4rem'
     }
 	},
 	profileContainer: {
