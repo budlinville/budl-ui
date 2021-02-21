@@ -4,12 +4,12 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Header from './components/Header';
-import Redirect from './components/Redirect';
-import Page from './components/pages/Page';
-import Portfolio from './components/pages/Portfolio';
-import Store from './components/pages/Store';
-import Messenger from './components/pages/Messenger';
+import Header from './Header';
+import Redirect from './Redirect';
+import Page from './pages/Page';
+import Portfolio from './pages/Portfolio';
+import Store from './pages/Store';
+import Messenger from './pages/Messenger';
 
 const Routes = ({ history }) => {
 	return (

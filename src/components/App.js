@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 
 import store from '../store';
 import { setHeaderExpanded } from '../store/actions/app';
-import Routes from '../Routes';
+import Routes from './Routes';
 import Theme from './Theme';
 
 export const history = createBrowserHistory();

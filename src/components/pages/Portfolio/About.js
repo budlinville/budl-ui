@@ -5,8 +5,8 @@ import ReceiptIcon from '@material-ui/icons/Receipt';
 
 import { about } from '../../../constants/pages/portfolio';
 
-import profile from '../../../resources/profile3.jpg';
-import pdf from '../../../resources/resume.pdf';
+import profile from '../../../static/resources/profile3.jpg';
+import pdf from '../../../static/resources/resume.pdf';
 
 const About = () => {
 	const classes = useStyles();

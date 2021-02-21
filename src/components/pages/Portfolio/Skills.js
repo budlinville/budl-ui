@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import '../../../styles/ag-grid/index.css';
+import '../../../static/styles/ag-grid/index.css';
 
 import { skillsColumnDefs } from '../../../constants/pages/portfolio';
 import skills from '../../../data/skills';
