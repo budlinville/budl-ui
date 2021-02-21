@@ -61,10 +61,13 @@ const useStyles = makeStyles(theme => ({
 	gridContainer: {
 		height: '100%',
 		width: '100%',
+		borderTop: '2px solid white',
+		borderBottom: '2px solid white', 
 		[theme.breakpoints.up('sm')]: {
 			width: '50em',
 			height: '400px',
-			borderRadius: '1em',
+			border: 'none',
+			borderRadius: '0.5em',
 			overflow: 'hidden'
     }
 	},
