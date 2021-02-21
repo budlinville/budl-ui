@@ -16,14 +16,16 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
+		height: '2rem',
 		backgroundColor: theme.palette.primary.main,
 		borderTop: `2px solid ${theme.palette.primary.light}`,
-		borderBottom: `2px solid ${theme.palette.primary.light}`
+		borderBottom: `2px solid ${theme.palette.primary.light}`,
+		paddingBottom: '5px'
 	},
 	qedText: {
+		display: 'flex',
 		height: '1rem',
-		color: theme.palette.primary.light,
-		margin: '0.5rem'
+		color: theme.palette.primary.light
 	}
 }));
 
