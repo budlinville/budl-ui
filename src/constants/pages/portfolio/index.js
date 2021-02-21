@@ -11,6 +11,12 @@ export const skillsColumnDefs = [
 		resizable: true
 	},
 	{
+		field: 'type',
+		headerName: 'Type',
+		minWidth: 100,
+		resizable: true
+	},
+	{
 		field: 'proficiency',
 		headerName: 'Proficiency (1-5)',
 		sort: 'desc',

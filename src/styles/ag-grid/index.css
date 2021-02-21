@@ -1,21 +1,18 @@
 /* overriding default ag-theme-material */
 .ag-theme-material {
-	--ag-background-color: rgba(0, 0, 0, 0.15);
+	--ag-background-color: transparent;
 	--ag-header-foreground-color: white;
-	--ag-header-background-color: rgba(0, 0, 0, 0.6);
+	--ag-header-background-color: rgba(0, 0, 0, 0.4);
 	--ag-foreground-color: white;
+	--ag-header-cell-hover-background-color: null,
 }
 
 .ag-theme-material .ag-row:nth-child(even) {
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-.ag-theme-material .ag-column-hover {
-  background-color: white;
-	color: black;
+	background-color: rgba(0, 0, 0, 0.15);
 }
 
 .ag-theme-material .ag-row-hover {
-	background-color: white !important;
-	color: black;
+	border-bottom: 3px solid white;
+	border-top: 2px solid white;
+	background-color: transparent;
 }

@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		height: '35rem',
-		backgroundColor: theme.palette.secondary.light,
+		backgroundColor: theme.palette.primary.main,
 		[theme.breakpoints.up('sm')]: {
 			justifyContent: 'center',
 			alignItems: 'center'
@@ -65,15 +65,13 @@ const useStyles = makeStyles(theme => ({
 			width: '50em',
 			height: '400px',
 			borderRadius: '1em',
-			overflow: 'hidden',
-			boxShadow: `0 0 2px ${theme.palette.primary.dark},
-				0 0 5px ${theme.palette.primary.main},
-				0 0 15px ${theme.palette.primary.light}`,
+			overflow: 'hidden'
     }
 	},
 	grid: {
 		height: '100%',
-		width: '100%'
+		width: '100%',
+		backgroundColor: theme.palette.secondary.main
 	}
 }));
 

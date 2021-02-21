@@ -55,7 +55,6 @@ const useStyles = makeStyles(theme => ({
 	heading: {
 		color: theme.palette.primary.main,
 		fontSize: 40,
-		textShadow: `1px 1px 1px ${theme.palette.secondary.main}`,
 		marginBottom: '1rem'
 	},
 	title: {
