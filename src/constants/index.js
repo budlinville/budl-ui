@@ -1,0 +1,1 @@
+export const headerLabelExpand = 'Double tap (or single tap on mobile) to expand';

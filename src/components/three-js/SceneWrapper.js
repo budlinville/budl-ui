@@ -7,6 +7,7 @@ import { useTheme } from '@material-ui/styles';
 import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
+import BottomLabel from './BottomLabel';
 
 const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 	const classes = useStyles();
@@ -49,6 +50,7 @@ const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 			onMouseEnter={() => onHoverCallback()}
 			onMouseLeave={() => onHoverReleaseCallback()}>
 			<Scene navCallback={navigate} />
+			<BottomLabel />
 		</div>
 	);
 };
