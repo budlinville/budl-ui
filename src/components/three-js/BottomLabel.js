@@ -41,7 +41,7 @@ const BottomLabel = () => {
 		color: hoveredSphere.color2,
 		textShadow: `0 0 5px ${hoveredSphere.color}`
 	} : {};
-	
+
 	return (
 		<div className={rootClass}>
 			<Typography className={labelClass} style={dynamicStyle}>
