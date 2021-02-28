@@ -38,7 +38,7 @@ const Scene = ({ navCallback }) => {
 				<TrackballControls
 					target={new Vector3(...center)}
 					noPan={true}
-					minDistance={5}
+					minDistance={10}
 					maxDistance={35}
 					rotateSpeed={6}/>
 
