@@ -74,10 +74,8 @@ const OrbitingSphere = ({
 	const outlineColor = headerExpanded ? color : color2;
 
 	return(
-		<group>
+		<group ref={sphere} position={position}>
 			<Sphere
-				ref={sphere}
-				position={position}
 				args={args}
 				onPointerOver={onHover}
 				onPointerOut={onRelease}
@@ -88,21 +86,13 @@ const OrbitingSphere = ({
 				<SphereMesh isHeaderExpanded={headerExpanded} isHovering={isHovering} color={color} color2={color2} />
 			</Sphere>
 			<SphereOutline
-				position={position}
-				center={center}
-				axis={axis}
 				args={args}
-				speed={speed}
 				color={outlineColor}
 				scale={outlineStrength}
 				opacity={1}
 			/>
 			<SphereOutline
-				position={position}
-				center={center}
-				axis={axis}
 				args={args}
-				speed={speed}
 				color={pressed ? color : color2}
 				visible={isHovering}
 				scale={2}
