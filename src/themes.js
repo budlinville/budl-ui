@@ -16,14 +16,14 @@ export const portfolio = {
 }
 export const store = {
   palette: {
-    primary: { main: '#0A6EE3' },
-    secondary: { main: '#FFB01C' }
+    primary: { main: '#b40004' },
+    secondary: { main: '#fd9109' }
   }
 }
 export const messenger = {
   palette: {
-    primary: { main: '#7C34E3' },
-    secondary: { main: '#EEFF2C' }
+    primary: { main: '#0c5a29' },
+    secondary: { main: '#fdc50a' }
   }
 }
 
