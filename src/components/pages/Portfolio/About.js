@@ -38,9 +38,8 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		backgroundColor: theme.palette.secondary.main,
-		padding: '4rem',
-		paddingBottom: '2rem',
+		backgroundColor: theme.palette.secondary.light,
+		padding: '6rem',
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
 			padding: '1rem',

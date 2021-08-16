@@ -10,9 +10,6 @@ const ListItem = ({ text }) => {
 	const classes = useStyles();
 	return (
 		<div style={{ display: 'flex' }}>
-			<div className={classes.listItemIcon}>
-				<RadioButtonCheckedIcon style={{ height: '1rem', width: '1.5rem' }}/>
-			</div>
 			<div className={classes.listItem}>
 				<Typography className={classes.accordionDescription}> { text } </Typography>
 			</div>
@@ -58,9 +55,9 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: 'white',
-		padding: '1rem',
-		paddingBottom: '3rem'
+		backgroundColor: '#e6e6e6',
+		padding: '5rem',
+		paddingBottom: '8rem'
 	},
 	workContainer: {
 		width: '100%',
@@ -109,11 +106,6 @@ const useStyles = makeStyles(theme => ({
 		padding: '0.5rem',
 		border: '0.1rem solid white',
 		borderRadius: '0.75rem'
-	},
-	listItemIcon: {
-		flex: 1,
-		color: 'white',
-		alignSelf: 'center'
 	}
 }));
 

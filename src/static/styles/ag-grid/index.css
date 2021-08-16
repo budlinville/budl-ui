@@ -2,7 +2,7 @@
 .ag-theme-material {
 	--ag-background-color: transparent;
 	--ag-header-foreground-color: white;
-	--ag-header-background-color: rgba(0, 0, 0, 0.4);
+	--ag-header-background-color: rgba(0, 0, 0, 0.25);
 	--ag-foreground-color: white;
 	--ag-header-cell-hover-background-color: null,
 }
@@ -12,7 +12,14 @@
 }
 
 .ag-theme-material .ag-row-hover {
-	border-bottom: 3px solid white;
-	border-top: 2px solid white;
 	background-color: transparent;
+}
+
+.ag-theme-material .ag-cell-hover {
+	background-color: transparent;
+	border: 1px solid black;
+}
+
+.ag-theme-material .ag-header-viewport {
+	border-bottom: 4px solid white;
 }

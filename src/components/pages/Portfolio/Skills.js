@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		height: '35rem',
-		backgroundColor: theme.palette.primary.main,
+		backgroundColor: theme.palette.primary.light,
 		[theme.breakpoints.up('sm')]: {
 			justifyContent: 'center',
 			alignItems: 'center'
