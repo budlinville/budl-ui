@@ -1,5 +1,12 @@
 const work = [
 	{
+		company: 'Tradebot',
+		position: 'Software Developer',
+		list: [
+			{ desc: 'Enabled trading team by maintaining \'The Bot\' and automating routine tasks.' } 
+		]
+	},
+	{
 		company: 'Walmart',
 		position: 'Software Engineer II',
 		list: [
