@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 
 import work from '../../../data/work';
 
