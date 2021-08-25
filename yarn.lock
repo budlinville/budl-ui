@@ -57,12 +57,12 @@
     "jsesc" "^2.5.1"
     "source-map" "^0.5.0"
 
-"@babel/helper-annotate-as-pure@^7.10.4", "@babel/helper-annotate-as-pure@^7.12.10":
-  "integrity" "sha512-XplmVbC1n+KY6jL8/fgLVXXUauDIB+lD5+GsQEh6F6GBF1dq1qy4DP4yXWzDKcoqXB3X58t61e85Fitoww4JVQ=="
-  "resolved" "https://registry.npmjs.org/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.12.10.tgz"
-  "version" "7.12.10"
+"@babel/helper-annotate-as-pure@^7.10.4", "@babel/helper-annotate-as-pure@^7.12.10", "@babel/helper-annotate-as-pure@^7.14.5":
+  "integrity" "sha512-EivH9EgBIb+G8ij1B2jAwSH36WnGvkQSEC6CkX/6v6ZFlw5fVOHvsgGF4uiEHO2GzMvunZb6tDLQEQSdrdocrA=="
+  "resolved" "https://registry.npmjs.org/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.14.5.tgz"
+  "version" "7.14.5"
   dependencies:
-    "@babel/types" "^7.12.10"
+    "@babel/types" "^7.14.5"
 
 "@babel/helper-builder-binary-assignment-operator-visitor@^7.10.4":
   "integrity" "sha512-L0zGlFrGWZK4PbT8AszSfLTM5sDU1+Az/En9VrdT8/LmEiJt4zXt+Jve9DCAnQcbqDhCI+29y/L93mrDzddCcg=="
@@ -71,6 +71,14 @@
   dependencies:
     "@babel/helper-explode-assignable-expression" "^7.10.4"
     "@babel/types" "^7.10.4"
+
+"@babel/helper-builder-react-jsx@^7.14.5":
+  "integrity" "sha512-LT/856RUBXAHjmvJuLuI6XYZZAZNMSS+N2Yf5EUoHgSWtiWrAaGh7t5saP7sPCq07uvWVxxK3gwwm3weA9gKLg=="
+  "resolved" "https://registry.npmjs.org/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.14.5.tgz"
+  "version" "7.14.5"
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    "@babel/types" "^7.14.5"
 
 "@babel/helper-compilation-targets@^7.12.1", "@babel/helper-compilation-targets@^7.12.5":
   "integrity" "sha512-+qH6NrscMolUlzOYngSBMIOQpKUGPPsc61Bu5W10mg84LxZ7cmvnBHzARKbDoFxVvqqAbj6Tg6N7bSrWSPXMyw=="
@@ -221,10 +229,10 @@
   dependencies:
     "@babel/types" "^7.12.11"
 
-"@babel/helper-validator-identifier@^7.10.4", "@babel/helper-validator-identifier@^7.12.11":
-  "integrity" "sha512-np/lG3uARFybkoHokJUmf1QfEvRVCPbmQeUQpKow5cQ3xWrV9i3rUHodKDJPQfTVX61qKi+UdYk8kik84n7XOw=="
-  "resolved" "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.12.11.tgz"
-  "version" "7.12.11"
+"@babel/helper-validator-identifier@^7.10.4", "@babel/helper-validator-identifier@^7.14.9":
+  "integrity" "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g=="
+  "resolved" "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.9.tgz"
+  "version" "7.14.9"
 
 "@babel/helper-validator-option@^7.12.1", "@babel/helper-validator-option@^7.12.11":
   "integrity" "sha512-TBFCyj939mFSdeX7U7DDj32WtzYY7fDcalgq8v3fBZMNOJQNn7nOYzMaUCiPxPYfCup69mtIpqlKgMZLvQ8Xhw=="
@@ -1086,13 +1094,12 @@
     "globals" "^11.1.0"
     "lodash" "^4.17.19"
 
-"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.12.1", "@babel/types@^7.12.10", "@babel/types@^7.12.11", "@babel/types@^7.12.12", "@babel/types@^7.12.5", "@babel/types@^7.12.6", "@babel/types@^7.12.7", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
-  "integrity" "sha512-lnIX7piTxOH22xE7fDXDbSHg9MM1/6ORnafpJmov5rs0kX5g4BZxeXNJLXsMRiO0U5Rb8/FvMS6xlTnTHvxonQ=="
-  "resolved" "https://registry.npmjs.org/@babel/types/-/types-7.12.12.tgz"
-  "version" "7.12.12"
+"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.12.1", "@babel/types@^7.12.10", "@babel/types@^7.12.11", "@babel/types@^7.12.12", "@babel/types@^7.12.5", "@babel/types@^7.12.6", "@babel/types@^7.12.7", "@babel/types@^7.14.5", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
+  "integrity" "sha512-OBvfqnllOIdX4ojTHpwZbpvz4j3EWyjkZEdmjH0/cgsd6QOdSgU8rLSk6ard/pcW7rlmjdVSX/AWOaORR1uNOQ=="
+  "resolved" "https://registry.npmjs.org/@babel/types/-/types-7.15.0.tgz"
+  "version" "7.15.0"
   dependencies:
-    "@babel/helper-validator-identifier" "^7.12.11"
-    "lodash" "^4.17.19"
+    "@babel/helper-validator-identifier" "^7.14.9"
     "to-fast-properties" "^2.0.0"
 
 "@bcoe/v8-coverage@^0.2.3":
