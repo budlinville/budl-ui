@@ -57,7 +57,7 @@ const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 			onMouseEnter={() => onHoverCallback()}
 			onMouseLeave={() => onHoverReleaseCallback()}>
 			<Scene navCallback={navigate} />
-			<BottomLabel />
+			{/* <BottomLabel /> */}
 		</div>
 	);
 };

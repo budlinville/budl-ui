@@ -47,7 +47,7 @@ const Header = () => {
 const useStyles = makeStyles(theme => ({
 	scene: {
 		height: '100vh',
-		transition: 'height 0.6s ease-out'
+		transition: 'height 0.2s ease-out'
 	},
 	sceneAsHeader: {
 		position: 'fixed',
@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100vw',
 		borderBottom: `1px solid ${theme.palette.secondary.dark}`,
 		boxShadow: `0px 2px 4px ${theme.palette.primary.light};`,
-		transition: 'height 0.3s ease-out',
+		transition: 'height 0.2s ease-out',
 		zIndex: 5,
 		'&:hover': {
 			height: '30vh'
@@ -70,13 +70,13 @@ const useStyles = makeStyles(theme => ({
 		width: '100vw',
 		height: '15vh',
 		backgroundColor: theme.palette.secondary.light,
-		transition: 'height 0.3s ease-out'
+		transition: 'height 0.2s ease-out'
 	},
 	spacer30vh: {
 		width: '100vw',
 		height: '30vh',
 		backgroundColor: theme.palette.secondary.light,
-		transition: 'height 0.3s ease-out'
+		transition: 'height 0.2s ease-out'
 	}
 }));
 

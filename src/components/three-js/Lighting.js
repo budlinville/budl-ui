@@ -5,14 +5,10 @@ const Lighting = () => {
 	// const dimensions = useSelector(state => state.scene.dimensions);
 	return (
 		<group>
-			<ambientLight intensity={0.75}/>
+			<ambientLight intensity={0.5}/>
 			<directionalLight
 				position={[0, 2, 0]}
-				intensity={0.75}
-			/>
-			<directionalLight
-				position={[0, -2, 0]}
-				intensity={0.75}
+				intensity={3}
 			/>
 		</group>
 	);
