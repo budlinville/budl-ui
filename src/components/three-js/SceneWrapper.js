@@ -8,6 +8,7 @@ import sphereData from '../../data/spheres';
 import Scene from './Scene';
 import { setOrbitCenter, setCamPos, setSceneDimensions } from '../../store/actions/scene';
 import BottomLabel from './BottomLabel';
+import { home } from '../../themes';
 
 const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 	const classes = useStyles();
@@ -15,9 +16,15 @@ const SceneWrapper = ({ history, onHoverCallback, onHoverReleaseCallback }) => {
 	const theme = useTheme();
 	const hovering = useSelector(state => state.scene.hovering);
 
+	const IS_HOME = theme.palette.primary.main === home.palette.primary.main;
+
 	const PRIM_COLOR = hovering.length ? sphereData[hovering[0].id].color : theme.palette.primary.main;
 	const PRIM_COLOR_DARK = hovering.length ? sphereData[hovering[0].id].color : theme.palette.primary.dark;
-	const SEC_COLOR = hovering.length ? sphereData[hovering[0].id].color2 : theme.palette.secondary.light;
+	const SEC_COLOR = IS_HOME
+		? PRIM_COLOR
+		: hovering.length
+			? sphereData[hovering[0].id].color2
+			: theme.palette.secondary.light;
 
 	const navigate = to => {
 		history.push(to);
